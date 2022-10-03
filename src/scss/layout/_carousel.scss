@@ -1,0 +1,33 @@
+.carousel {
+    padding: 0 $indent;
+    margin: 40px 0 0;
+    @include tablet {
+        position: relative;
+    }
+
+    &_item {
+        flex-shrink: 0;
+
+        p {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 140%;
+            color: $cOrange;
+            @include tablet {
+                font-size: 18px;
+            }
+        }
+    }
+    &_image {
+        width: 100%;
+        display: block;
+        margin: 0 0 22px;
+        @include tablet {
+            margin-bottom: 32px;
+        }
+    }
+
+    .tns-ovh {
+        overflow: visible;
+    }
+}

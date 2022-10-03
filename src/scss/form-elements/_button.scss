@@ -1,0 +1,66 @@
+@mixin button {
+    display: inline-block;
+    background: transparent;
+    box-sizing: border-box;
+    border: 1px dashed $bg_color;
+    border-radius: 50px;
+    background-color: $cRed;
+    cursor: pointer;
+    color: $bg_color;
+    font-family: $font-family__heading;
+    font-size: 24px;
+    font-weight: 600;
+    height: 62px;
+    line-height: 58px;
+    padding: 0 24px;
+    min-width: 146px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    width: 100%;
+    transition: .2s $easing color,
+                .2s $easing background-color;
+    @include tablet {
+        width: auto;
+        min-width: 300px;
+    }
+
+    &:hover {
+        background-color: #A32D1D;
+    }
+    &:active {
+        background-color: $cGreen;
+    }
+    &:disabled {
+        opacity: .6;
+    }
+}
+
+@mixin button-reset {
+    border: none;
+    padding: 0;
+    background: transparent;
+    height: auto;
+    line-height: 1.2;
+    min-width: 0;
+    width: auto;
+    border-radius: 0;
+    text-transform: none;
+
+    &:hover {
+        transform: none;
+        background: transparent;
+    }
+    &:active {
+        transform: none;
+        background: transparent;
+    }
+}
+
+.button,
+button,
+input[type="button"],
+input[type="submit"] {
+    @include button;
+}

@@ -1,0 +1,16 @@
+.header {
+    @include layout;
+    position: relative;
+    margin-bottom: 32px;
+    @include tablet {
+        margin-bottom: 40px;
+    }
+    
+    &_holder {
+        border-bottom: 1px solid $cGray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+}

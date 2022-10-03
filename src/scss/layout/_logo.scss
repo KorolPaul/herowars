@@ -1,0 +1,21 @@
+.logo {
+    display: block;
+    width: 54px;
+    z-index: 11;
+    transition: .5s linear opacity;
+    @include desktop {
+        width: 87px;
+    }
+
+    &:hover {
+        opacity: .6;
+    }
+    &:active {
+        opacity: .8;
+    }
+
+    &_image {
+        display: block;
+        width: 100%;
+    }
+}

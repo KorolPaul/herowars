@@ -1,0 +1,100 @@
+.footer {
+    background-color: $color;
+    padding: 32px 0 6px;
+    @include tablet {
+        padding: 50px 0 40px;
+    }
+
+    &_holder {
+        @include layout;
+        position: relative;
+    }
+    &_logos {
+        display: flex;
+        gap: 12px;
+        margin: 0 0 36px;
+        @include tablet {
+            position: absolute;
+            left: 0;
+            top: -10px;
+        }
+
+        img {
+            height: 32px;
+            @include tablet {
+                height: 58px;
+            }
+        }
+    }
+    &_menu {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 16px;
+        @include tablet {
+            display: block;
+            margin: 0 0 40px;
+        }
+    }
+    &_menu-row {
+        display: contents;
+        @include tablet {
+            display: block;
+            text-align: center  ;
+        }
+    }
+    &_link {
+        color: #fff;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        width: 45%;
+        margin: 0 0 16px;
+        @include tablet {
+            font-size: 19px;
+            line-height: 30px;
+            width: initial;
+            margin: 0 16px 18px;
+        }
+
+        &__desktop {
+            display: none;
+            @include tablet {
+                display: inline-block;
+            }
+        }
+
+        .footer_menu-row:nth-child(2) &:nth-child(1),
+        .footer_menu-row:nth-child(2) &:nth-child(4) {
+            width: 30%;
+            @include tablet {
+                width: initial;
+            }
+        }
+        .footer_menu-row:nth-child(2) &:nth-child(2),
+        .footer_menu-row:nth-child(2) &:nth-child(5) {
+            width: 20%;
+            @include tablet {
+                width: initial;
+            }
+        }
+    }
+    &_copyrights {
+        @include tablet {
+            text-align: center;
+        }
+
+        & > * {
+            color: rgba(201, 200, 200, 0.3);
+            display: block;
+            margin: 0 0 12px;
+            font-size: 11px;
+            line-height: 13px;
+            @include tablet {
+                font-size: 16px;
+                line-height: 19px;
+                margin: 0 4px;
+                display: inline;
+            }
+        }
+    }
+}

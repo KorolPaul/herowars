@@ -1,0 +1,36 @@
+.about {
+    padding: 100px 0;
+    text-align: center;
+    @include tablet {
+        padding: 200px 0;
+        max-width: 1060px;
+        margin: auto;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        right: -$indent;
+        top: -60%;
+        background: url(#{$img}/shape-top.svg) no-repeat center / 100% 100%;
+        width: 667px;
+        height: 512px;
+        @include tablet {
+            top: -30%;
+            right: 0;
+        }
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: -$indent;
+        bottom: -35%;
+        background: url(#{$img}/shape-bottom.svg) no-repeat center / 100% 100%;
+        width: 277px;
+        height: 271px;
+        @include tablet {
+            left: 0;
+            bottom: -5%;
+        }
+    }
+}

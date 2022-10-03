@@ -1,0 +1,90 @@
+.gallery {
+    background: url(#{$img}/gallery-bg.png) no-repeat center / cover;
+    padding: 50px 0 10px;
+    margin: 0 0 74px;
+    @include tablet {
+        padding: 100px 0 26px;
+        margin-bottom: 140px;
+    }
+
+    &_columns {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 0 0 60px;
+        }
+    }
+    &_text {
+        @include tablet {
+            max-width: 50%;
+        }
+
+        p {
+            display: none;
+            @include tablet {
+                display: block;
+            }
+        }
+
+        &.opened p {
+            display: block;
+        }
+        &.opened {
+            margin-bottom: 30px
+        }
+    }
+    &_text-button {
+        @include button-reset;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 110%;
+        color: $color;
+        padding: 0 15px 0 0;
+        position: relative;
+        margin: 0 0 24px;
+        @include tablet {
+            display: none;
+        }
+
+        &::after {
+            content: '';
+            background: url(#{$img}/down.svg) no-repeat center / cover;
+            position: absolute;
+            top: 7px;
+            right: 0;
+            width: 8px;
+            height: 4px;
+        }
+
+        .opened &::after {
+            transform: rotate(180deg);
+        }
+    }
+    &_holder {
+    }
+    &_caption {
+        margin: 90px 33px 10px;
+        font-size: 12px;
+        line-height: 140%;
+        color: rgba(#fff, .4);
+        text-align: center;
+        @include tablet {
+            text-align: right;
+            margin: 36px 0 0;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    h2 {
+        margin-bottom: 40px;
+        @include tablet {
+            margin-bottom: 60px;
+        }
+    }
+}
