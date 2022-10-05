@@ -1,8 +1,32 @@
 .section {
-    
+    position: relative;
 
     &_holder {
         @include layout;
         text-align: center;
+    }
+    &_person {
+
+        &__left {
+            margin: auto;
+            @include tablet {
+                margin: 40px auto 0;
+            }
+            @include desktop {
+                position: absolute;
+                bottom: 0;
+                left: -65px;
+            }
+        }
+        &__right {
+            display: flex;
+            justify-content: flex-end;
+            text-align: right;
+            @include desktop {
+                position: absolute;
+                bottom: 30px;
+                right: 100px;
+            }
+        }
     }
 }

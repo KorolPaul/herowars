@@ -40,7 +40,7 @@
 @mixin button-reset {
     border: none;
     padding: 0;
-    background: transparent;
+    background-color: transparent;
     height: auto;
     line-height: 1.2;
     min-width: 0;
@@ -50,11 +50,11 @@
 
     &:hover {
         transform: none;
-        background: transparent;
+        background-color: transparent;
     }
     &:active {
         transform: none;
-        background: transparent;
+        background-color: transparent;
     }
 }
 

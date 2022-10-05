@@ -1,0 +1,51 @@
+.platforms {
+    @include desktop {
+        padding: 0 0 220px;
+    }
+
+    &_holder {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        margin: 0 0 26px;
+        @include tablet {
+            flex-direction: row;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        @include desktop {
+            margin-bottom: 44px;
+        }
+    }
+    &_link {
+        display: block;
+    }
+    &_item {
+        width: 190px;
+        @include tablet {
+            width: 195px;
+        }
+        @include desktop {
+            width: 208px;
+        }
+        @include desktop-large {
+            width: 228px;
+        }
+    }
+    &_disclaimer {
+        text-align: center;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.43;
+        letter-spacing: 0.5px;
+        color: #AEBDD8;
+        mix-blend-mode: normal;
+        opacity: 0.3;
+        max-width: 425px;
+        margin: 0 auto 40px;
+        @include desktop {
+            margin: auto;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.star {
+    display: none;
+    @include tablet {
+        display: block;
+        width: 36px;
+        height: 37px;
+        background: url(#{$img}/star.svg) no-repeat center / 100% 100%;
+    }
+}
