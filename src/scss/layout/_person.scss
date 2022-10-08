@@ -1,3 +1,13 @@
+@mixin play($frames, $width, $length) {
+    animation: frames-#{$width} $length steps($frames, end) infinite;
+
+    @keyframes frames-#{$width} {
+        to {
+            background-position-x: -#{$width * $frames}px;
+        }
+    }
+}
+
 .person {
 
     &__pumpkin {
@@ -11,24 +21,29 @@
         }
     }
     &__warrior {
+        @include play(45, 303, 1.5s);
         width: 277px;
         height: 192px;
-        background: url(#{$img}/warrior.png) no-repeat center / contain;
+        background: url(#{$img}/warrior.png) no-repeat top left / auto 100%;
         @include desktop {
-            width: 387px;
-            height: 267px;
+            width: 303px;
+            height: 233px;
         }
     }
-    &__magician {
-        width: 158px;
-        height: 271px;
+    &__morrigen {
+        @include play(60, 202, 2s);
+        width: 202px;
+        height: 241px;
         margin: auto;
-        background: url(#{$img}/magician.png) no-repeat center / contain;
+        background: url(#{$img}/morrigen.png) no-repeat top left / auto 100%;
     }
     &__demon {
-        width: 312px;
-        height: 357px;
+        @include play(60, 356, 2s);
+        width: 356px;
+        height: 312px;
         margin: auto;
-        background: url(#{$img}/demon.png) no-repeat center / contain;
+        background: url(#{$img}/demon.png) no-repeat top left / auto 100%;
     }
 }
+
+

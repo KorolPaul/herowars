@@ -1,62 +1,59 @@
 .form {
-    &_row {
-        margin: 0 0 40px;
-        position: relative;
-        @include desktop {
-            width: 412px;
-        }
+    max-width: 480px;
+    margin: 0 auto 170px;
+    @include desktop {
+        margin-bottom: 140px;
+    }
 
-        &__center {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 24px;
+    &_row {
+        margin: 0 0 46px;
+        position: relative;
+
+        &::after {
+            content: '';
+            background: url(#{$img}/error-glow.png) no-repeat center / cover;
+            width: 371px;
+            height: 67px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            margin-left: -185px;
+            pointer-events: none;
+            opacity: 0;
+            transition: .2s $easing opacity;
+        }
+        &.error::after {
+            opacity: 1;
         }
     }
-    &_columns {
-        @include desktop {
-            display: flex;
-            justify-content: space-between;
-            gap: 156px;
+    &_submit[type] {
+        @include button-reset;
+        background: url(#{$img}/submit-button.png) no-repeat center / cover;
+        width: 212px;
+        height: 68px;
+        color: transparent;
+        filter: saturate(1);
+        transition: .2s $easing filter;
+
+        &:hover {
+            filter: saturate(2);
+        }
+        &:active {
+            filter: saturate(1.2);
         }
     }
-    &_column {
-        @include desktop {
-            flex-grow: 1;
-            margin-bottom: 60px;
-        }
-    }
-    &_label {
+    &_error {
+        font-size: 18px;
+        line-height: 24px;
+        color: $cRed;
         position: absolute;
         left: 0;
-        top: 17px;
-        font: 18px $font-family;
-        transform-origin: left top;
-        transition: .2s $easingSmooth transform, .2s $easingSmooth color;
-
-        input:focus + &,
-        input:not(:placeholder-shown) + &,
-        textarea:focus + &,
-        textarea:not(:placeholder-shown) + & {
-            transform: scale(.8) translateY(-35px);
-        }
-
-        .error & {
-            color: $cRed;
-        }
-    }
-    &_success {
-        background: url(#{$img}/success.svg) no-repeat top center;
-        color: $cGreen;
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 29px;
-        font-family: $font-family__heading;
-        padding-top: 68px;
-        text-align: center;
+        bottom: -36px;
         display: none;
 
-        .successed & {
+        .error & {
             display: block;
         }
     }
+    
 }

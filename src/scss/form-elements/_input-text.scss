@@ -6,15 +6,14 @@ input[type="url"],
 input[type="tel"] {
     @include placeholder-color($color);
     color: $color;
-    background: transparent;
-    border: none;
-    border-bottom: 1px dashed currentColor;
-    border-radius: 0;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(174, 189, 216, 0.5);
+    border-radius: 5px;
     box-sizing: border-box;
     font: 18px $font-family;
-    height: 55px;
-    line-height: 34px;
-    padding: 0 0 0 8px;
+    height: 58px;
+    line-height: 58px;
+    padding: 0 22px;
     width: 100%;
     transition: .2s ease-in border-color,
                 .2s ease-in color;
@@ -25,6 +24,6 @@ input[type="tel"] {
     }
 
     .error & {
-        color: $cRed;
+        border-color: $cRed;
     }
 }

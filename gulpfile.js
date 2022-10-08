@@ -30,18 +30,18 @@ gulp.task('sass', function () {
 });
 
 gulp.task('img-resize', function() {
-    return gulp.src('src/img/slider/*')
+    return gulp.src('/src/img/*')
         .pipe(imageResize({
             width : 1500,
             height : 1000,
             crop : false,
             upscale : true
         }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('/dist'))
 });
 
 gulp.task('img', function() {
-    return gulp.src('src/img/*.jpg')
+    return gulp.src('src/img/*.png')
         .pipe(imagemin())
         .pipe(gulp.dest('dist'))
 });

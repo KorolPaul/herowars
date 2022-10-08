@@ -1,6 +1,46 @@
 .section {
     position: relative;
 
+    &__platforms {
+        background: url(#{$img}/platforms-bottom.png) no-repeat center bottom / 100% auto,
+                    url(#{$img}/platforms-bg.svg) no-repeat bottom center / 100% 90%;
+        padding: 175px 0 300px;
+        @include desktop {
+            padding: 190px 0 150px;
+        }
+    }
+    &__treasures {
+        background: url(#{$img}/treasures-bottom.png) no-repeat center bottom / 100% auto,
+                    url(#{$img}/treasures-bg.svg) no-repeat bottom center / 100% 90%;
+        padding: 175px 0 300px;
+        @include desktop {
+            padding: 190px 0 150px;
+        }
+    }
+    &__steps {
+        background: url(#{$img}/steps-bottom.png) no-repeat center bottom / 100% auto,
+                    url(#{$img}/steps-bg.svg) no-repeat top center / 100% 90%;
+        padding: 175px 0 300px;
+        @include desktop {
+            padding: 190px 0 150px;
+        }
+    }
+    &__form {
+        padding: 150px 0 0;
+        background: url(#{$img}/form-stars.svg) no-repeat center bottom;
+        @include desktop {
+            padding-top: 220px;
+        }
+    }
+    &__faq {
+        background: url(#{$img}/faq-bottom.png) no-repeat center bottom / 100% auto,
+                    url(#{$img}/faq-bg.svg) no-repeat top center / 100% 90%;
+        padding: 175px 0 300px;
+        @include desktop {
+            padding: 190px 0 150px;
+        }
+    }
+
     &_holder {
         @include layout;
         text-align: center;
