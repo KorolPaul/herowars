@@ -53,3 +53,69 @@ const galleryTextButton = document.querySelector('.gallery_text-button');
 if (galleryTextButton) {
     galleryTextButton.addEventListener('click', e => e.currentTarget.parentElement.classList.toggle('opened'));
 }
+
+/* cookies */
+if (Cookies) {
+    const hasCookies = Cookies.get('CookieNotificationCookie');
+
+    const cookiesBanner = document.querySelector('.cookies');
+    const cookiesAcceptButton = document.querySelector('.cookies_button');
+
+    if (cookiesAcceptButton) {
+        cookiesAcceptButton.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            cookiesBanner.style.display = 'none';
+            Cookies.set('CookieNotificationCookie', 'true', { expires: 365 });
+        });
+    }
+
+    if (cookiesBanner && !hasCookies) {
+        cookiesBanner.style.display = 'block';
+    }
+}
+
+/* hide header buttons when first section visible */
+const headerEl = document.querySelector('.header')
+const showcaseEl = document.querySelector('.section__showcase')
+
+if (headerEl && showcaseEl) {
+    const observerCallback = function (e) {
+        const { intersectionRatio } = e[0];
+
+        if (intersectionRatio < 0.1) {
+            headerEl.classList.add('header__button-visible');
+        } else {
+            headerEl.classList.remove('header__button-visible');
+        }
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+        rootMargin: '0px 0px 0px 0px',
+        threshold: thresholdSteps,
+        root: null
+    });
+    observer.observe(showcaseEl)
+}
+
+/* appaerance animation */
+const animatedElements = document.querySelectorAll('.js-animation, .section_title, .section_subtitle');
+
+if (animatedElements.length) {
+    const ratio = isMobile ? 0.2 : 0.5
+    const observerCallback = function (e) {
+        const { target, intersectionRatio } = e[0];
+        if (intersectionRatio > ratio) {
+            target.classList.add('animated');
+        }
+    };
+
+    animatedElements.forEach(el => {
+        const observer = new IntersectionObserver(observerCallback, {
+            rootMargin: '0px 0px -15% 0px',
+            threshold: thresholdSteps,
+            //root: document.body
+        });
+        observer.observe(el);
+    })
+}

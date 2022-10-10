@@ -1,6 +1,8 @@
 .faq {
     text-align: left;
     margin: 0 0 75px;
+    position: relative;
+    z-index: 3;
     @include tablet {
         margin-bottom: 65px;
     }
@@ -17,13 +19,26 @@
         }
     }
     &_header {
+        cursor: pointer;
         font-size: 22px;
         line-height: 28px;
         padding: 28px 0 24px;
         border-bottom: 2px solid rgba(174, 189, 216, 0.2);
         position: relative;
+        transition: .2s $easing opacity;
         @include tablet {
             padding: 25px 0 27px;
+        }
+
+        &:hover {
+            opacity: .6;
+        }
+        &:active {
+            opacity: .8;
+        }
+
+        input:checked + & {
+            border-bottom-color: transparent;
         }
     }
     &_header-arrow {
@@ -34,6 +49,12 @@
         right: 0;
         top: 50%;
         margin-top: -16px;
+        transform-origin: center;
+        transition: .2s linear transform;
+
+        input:checked + label & {
+            transform: rotate(-180deg);
+        }
     }
     &_content {
         font-weight: 700;
@@ -41,10 +62,11 @@
         line-height: 24px;
         overflow: hidden;
         max-height: 0;
-        transition: .3s $easing max-height;
+        transition: .3s linear 0s max-height;
 
-        input:checked + & {
+        input:checked + label + & {
             max-height: 500px;
+            transition-delay: .1s;
         }
     }
     &_radio {

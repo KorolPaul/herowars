@@ -1,6 +1,6 @@
 .platforms {
     @include desktop {
-        padding: 0 0 220px;
+        padding: 0 0 50px;
     }
 
     &__footer {
@@ -23,6 +23,10 @@
         @include desktop {
             margin-bottom: 44px;
         }
+
+        .platforms__footer & {
+            margin-bottom: 25px;
+        }
     }
     &_link {
         display: block;
@@ -37,6 +41,15 @@
         }
         @include desktop-large {
             width: 228px;
+        }
+
+        .platforms__footer & {
+            @include tablet {
+                width: 148px;
+            }
+            @include desktop {
+                width: 158px;
+            }
         }
     }
     &_disclaimer {

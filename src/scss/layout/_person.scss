@@ -22,13 +22,9 @@
     }
     &__warrior {
         @include play(45, 303, 1.5s);
-        width: 277px;
-        height: 192px;
+        width: 303px;
+        height: 233px;
         background: url(#{$img}/warrior.png) no-repeat top left / auto 100%;
-        @include desktop {
-            width: 303px;
-            height: 233px;
-        }
     }
     &__morrigen {
         @include play(60, 202, 2s);

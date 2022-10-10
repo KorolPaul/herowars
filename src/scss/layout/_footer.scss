@@ -10,14 +10,20 @@
     &::before {
         content: '';
         background: url(#{$img}/footer-stars.svg) no-repeat center bottom,
-                    url(#{$img}/form-bg.svg) no-repeat center bottom / 100% auto;
+                    url(#{$img}/form-bg.svg) no-repeat center bottom / 100% 100%;
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 200vh;
+        height: 1464px;
         pointer-events: none;
         z-index: -1;
+        @include tablet {
+            height: 1260px;
+        }
+        @include desktop {
+            height: 1188px;
+        }
     }
 
     &_holder {
@@ -25,13 +31,11 @@
         position: relative;
     }
     &_menu {
-        margin: 0 0 12px;
         @include tablet {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 30px;
-            margin: 0 0 16px;
         }
     }
     &_link {
