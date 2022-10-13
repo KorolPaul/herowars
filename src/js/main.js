@@ -119,3 +119,16 @@ if (animatedElements.length) {
         observer.observe(el);
     })
 }
+
+/* faq accordion */
+const faqElements = document.querySelectorAll('.faq_header');
+faqElements.forEach(el => {
+    faqElements.forEach(el => el.parentElement.classList.remove('opened'));
+    el.addEventListener('click', (e) => e.currentTarget.parentElement.classList.toggle('opened'))
+});
+
+/* form */
+const submitEl = document.querySelector('.form_submit');
+if (submitEl) {
+    submitEl.addEventListener('click', (e) => e.target.setAttribute('disabled', true));
+}

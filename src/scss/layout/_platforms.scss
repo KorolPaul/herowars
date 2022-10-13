@@ -29,6 +29,7 @@
         }
     }
     &_link {
+        @include hover-scale;
         display: block;
     }
     &_item {
@@ -62,6 +63,13 @@
         margin: 0 auto 40px;
         @include desktop {
             margin: auto;
+        }
+
+        .platforms__footer & {
+            max-width: 80%;
+            @include desktop-large {
+                max-width: 1168px;
+            }
         }
     }
 }

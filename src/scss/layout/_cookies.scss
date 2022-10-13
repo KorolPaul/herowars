@@ -29,12 +29,19 @@
         }
     }
     &_button {
+        @include hover-scale;
         margin: 0 0 10px;
+        width: 100%;
     }
     &_link {
         color: #5F4536;
         font-size: 14px;
         line-height: 20px;
         text-transform: uppercase;
+
+        &:hover {
+            color: #5F4536;
+            text-decoration: underline;
+        }
     }
 }

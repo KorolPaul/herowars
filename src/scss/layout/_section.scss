@@ -2,10 +2,11 @@
     position: relative;
 
     &__platforms {
-        background: url(#{$img}/platforms-bg.svg) no-repeat bottom center / 100% 100%;
-        padding: 175px 0 300px;
+        background: url(#{$img}/stars.svg) no-repeat center top,
+                    url(#{$img}/platforms-bg.svg) no-repeat bottom center / 100% 100%;
+        padding: 30px 0 300px;
         @include desktop {
-            padding: 190px 0 150px;
+            padding: 110px 0 150px;
         }
 
         &::after {
@@ -21,7 +22,8 @@
         }
     }
     &__treasures {
-        background: url(#{$img}/treasures-bg.svg) no-repeat bottom center / 100% 100%;
+        background: url(#{$img}/stars.svg) no-repeat center,
+                    url(#{$img}/treasures-bg.svg) no-repeat bottom center / 100% 100%;
         padding: 175px 0 300px;
         @include desktop {
             padding: 130px 0 150px;
@@ -40,7 +42,8 @@
         }
     }
     &__steps {
-        background: url(#{$img}/steps-bg.svg) no-repeat top center / 100% 100%;
+        background: url(#{$img}/stars.svg) no-repeat center top,
+                    url(#{$img}/steps-bg.svg) no-repeat top center / 100% 100%;
         padding: 175px 0 300px;
         @include tablet {
             padding-bottom: 40px;
@@ -63,14 +66,15 @@
     }
     &__form {
         padding: 150px 0 0;
-        background: url(#{$img}/form-stars.svg) no-repeat center bottom;
+        background: url(#{$img}/stars.svg) no-repeat center bottom;
         @include desktop {
             padding-top: 100px;
             background-size: 100%;
         }
     }
     &__faq {
-        background: url(#{$img}/faq-bottom.png) no-repeat center bottom / 100% auto,
+        background: url(#{$img}/stars.svg) no-repeat center top 10%,
+                    url(#{$img}/faq-bottom.png) no-repeat center bottom / 100% auto,
                     url(#{$img}/faq-bg.svg) no-repeat top center / 100% 90%;
         padding: 175px 0 300px;
         @include desktop {

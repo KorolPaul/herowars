@@ -9,7 +9,7 @@
 
     &::before {
         content: '';
-        background: url(#{$img}/footer-stars.svg) no-repeat center bottom,
+        background: url(#{$img}/stars.svg) no-repeat center bottom,
                     url(#{$img}/form-bg.svg) no-repeat center bottom / 100% 100%;
         position: absolute;
         bottom: 0;

@@ -16,18 +16,21 @@
     &_column {
         @include desktop {
             flex-grow: 1;
+            width: 50%;
         }
     }
     &_header {
         cursor: pointer;
+        display: block;
         font-size: 22px;
         line-height: 28px;
-        padding: 28px 0 24px;
+        padding: 28px 30px 24px 0;
         border-bottom: 2px solid rgba(174, 189, 216, 0.2);
         position: relative;
-        transition: .2s $easing opacity;
+        transition: .2s $easing opacity, .1s $easing border .6s;
+        text-transform: capitalize;
         @include tablet {
-            padding: 25px 0 27px;
+            padding: 25px 40px 27px 0;
         }
 
         &:hover {
@@ -37,8 +40,9 @@
             opacity: .8;
         }
 
-        input:checked + & {
+        .opened & {
             border-bottom-color: transparent;
+            transition-delay: .2s, .1s;
         }
     }
     &_header-arrow {
@@ -50,9 +54,9 @@
         top: 50%;
         margin-top: -16px;
         transform-origin: center;
-        transition: .2s linear transform;
+        transition: .4s linear transform;
 
-        input:checked + label & {
+        .opened & {
             transform: rotate(-180deg);
         }
     }
@@ -62,9 +66,9 @@
         line-height: 24px;
         overflow: hidden;
         max-height: 0;
-        transition: .3s linear 0s max-height;
+        transition: .6s linear 0s max-height;
 
-        input:checked + label + & {
+        .opened & {
             max-height: 500px;
             transition-delay: .1s;
         }

@@ -1,16 +1,8 @@
 .logo {
     display: block;
     width: 162px;
-    transition: .5s linear opacity;
     @include desktop {
         width: 244px;
-    }
-
-    &:hover {
-        opacity: .6;
-    }
-    &:active {
-        opacity: .8;
     }
 
     &_image {

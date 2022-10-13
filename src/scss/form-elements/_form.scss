@@ -33,12 +33,13 @@
 
     &_submit[type] {
         @include button-reset;
+        @include hover-scale;
         background: url(#{$img}/submit-button.png) no-repeat center / cover;
         width: 212px;
         height: 68px;
         color: transparent;
         filter: saturate(1);
-        transition: .2s $easing filter;
+        transition: .2s $easing filter, .2s $easing transform;
 
         &:hover {
             opacity: 1;
@@ -48,6 +49,11 @@
         &:active {
             opacity: 1;
             filter: saturate(1.2);
+        }
+        &:disabled {
+            background-image: url(#{$img}/submited-button.png);
+            opacity: 1;
+            pointer-events: none;
         }
     }
 
