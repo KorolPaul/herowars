@@ -1,7 +1,7 @@
 .header {
     @include layout;
     position: relative;
-    margin-bottom: 32px;
+    margin-bottom: 7px;
     @include tablet {
         margin-bottom: 40px;
     }

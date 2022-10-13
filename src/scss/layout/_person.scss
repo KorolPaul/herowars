@@ -9,16 +9,16 @@
 }
 
 .person {
+    transform: scale(.75);
+    @include desktop {
+        transform: none;
+    }
 
     &__pumpkin {
-        width: 184px;
-        height: 289px;
+        width: 244px;
+        height: 383px;
         background: url(#{$img}/pumpkin-king.png) no-repeat center / contain;
         margin: auto;
-        @include desktop {
-            width: 244px;
-            height: 383px;
-        }
     }
     &__warrior {
         @include play(45, 303, 1.5s);

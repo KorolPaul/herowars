@@ -1,51 +1,18 @@
 .section {
     position: relative;
-
-    &__platforms {
-        background: url(#{$img}/stars.svg) no-repeat center top,
-                    url(#{$img}/platforms-bg.svg) no-repeat bottom center / 100% 100%;
-        padding: 30px 0 300px;
-        @include desktop {
-            padding: 110px 0 150px;
-        }
-
-        &::after {
-            content: '';
-            background: url(#{$img}/platforms-bottom.png) no-repeat center bottom / 100% auto;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -50px;
-            height: 300px;
-            pointer-events: none;
-            z-index: 1;
-        }
+    //overflow: hidden;
+    @include desktop {
+        overflow: visible;
     }
-    &__treasures {
-        background: url(#{$img}/stars.svg) no-repeat center,
-                    url(#{$img}/treasures-bg.svg) no-repeat bottom center / 100% 100%;
-        padding: 175px 0 300px;
-        @include desktop {
-            padding: 130px 0 150px;
-        }
 
-        &::after {
-            content: '';
-            background: url(#{$img}/treasures-bottom.png) no-repeat center bottom / 100% auto;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -40px;
-            height: 300px;
-            pointer-events: none;
-            z-index: 1;
-        }
-    }
     &__steps {
-        background: url(#{$img}/stars.svg) no-repeat center top,
+        background: url(#{$img}/stars.svg) no-repeat center / 100% auto,
                     url(#{$img}/steps-bg.svg) no-repeat top center / 100% 100%;
-        padding: 175px 0 300px;
+        background-color: #0c1a34;
+        padding: 175px 0 0;
         @include tablet {
+            background-position: center top, top center;
+            background-size: auto, 100%;
             padding-bottom: 40px;
         }
         @include desktop {
@@ -54,31 +21,91 @@
 
         &::after {
             content: '';
-            background: url(#{$img}/steps-bottom.png) no-repeat center bottom / 100% auto;
+            background: url(#{$img}/steps-bottom.png) no-repeat center bottom;
             position: absolute;
             left: 0;
             right: 0;
-            bottom: -60px;
+            bottom: -100px;
             height: 300px;
             pointer-events: none;
             z-index: 1;
+            @include desktop {
+                background-size: 100% auto;
+                bottom: -60px;
+            }
+        }
+    }
+    &__platforms {
+        background: url(#{$img}/stars.svg) no-repeat center top / 100% auto,
+                    url(#{$img}/platforms-bg.svg) no-repeat bottom center / 100% 100%;
+        @include tablet {
+            background-size: auto, 100%;
+        }
+        @include desktop {
+            padding: 110px 0 150px;
+        }
+
+        &::after {
+            content: '';
+            background: url(#{$img}/platforms-bottom.png) no-repeat center bottom;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -50px;
+            height: 300px;
+            pointer-events: none;
+            z-index: 1;
+            @include desktop {
+                background-size: 100% auto;
+            }
+        }
+    }
+    &__treasures {
+        background: url(#{$img}/stars.svg) no-repeat center top 5% / 100% auto,
+                    url(#{$img}/treasures-bg.svg) no-repeat bottom center / 100% 100%;
+        padding: 115px 0 40px;
+        @include tablet {
+            background-position: center, bottom center;
+            background-size: auto, 100%;
+        }
+        @include desktop {
+            padding: 130px 0 150px;
+        }
+
+        &::after {
+            content: '';
+            background: url(#{$img}/treasures-bottom.png) no-repeat left 5% bottom;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -40px;
+            height: 300px;
+            pointer-events: none;
+            z-index: 1;
+            @include desktop {
+                background-size: 100% auto;
+                background-position: center bottom;
+            }
+        }
+    }
+    &__faq {
+        background: url(#{$img}/stars.svg) no-repeat center top 10% ,
+                    url(#{$img}/faq-bottom.png) no-repeat center bottom 3% / auto 300px,
+                    url(#{$img}/faq-bg.svg) no-repeat top center / 100% 90%;
+        padding: 125px 0 100px;
+        @include tablet {
+            background-position: center top, bottom center, top center;
+            background-size: auto, 100% auto, 100%, 90%;
+        }
+        @include desktop {
+            padding: 130px 0 50px;
         }
     }
     &__form {
-        padding: 150px 0 0;
         background: url(#{$img}/stars.svg) no-repeat center bottom;
         @include desktop {
             padding-top: 100px;
             background-size: 100%;
-        }
-    }
-    &__faq {
-        background: url(#{$img}/stars.svg) no-repeat center top 10%,
-                    url(#{$img}/faq-bottom.png) no-repeat center bottom / 100% auto,
-                    url(#{$img}/faq-bg.svg) no-repeat top center / 100% 90%;
-        padding: 175px 0 300px;
-        @include desktop {
-            padding: 130px 0 50px;
         }
     }
 
@@ -87,21 +114,18 @@
         text-align: center;
     }
     &_title {
-        max-width: 80%;
         margin-left: auto;
         margin-right: auto;
         position: relative;
         z-index: 1;
-        @include tablet {
-            max-width: initial;
-        }
     }
     &_subtitle {
-        margin: 0;
+        margin: 0 0 15px;
         position: relative;
         z-index: 1;
     }
     &_person {
+        position: relative;
         z-index: 2;
 
         &__left {
@@ -125,6 +149,8 @@
             display: flex;
             justify-content: flex-end;
             text-align: right;
+            margin-left: -$indent;
+            margin-right: -$indent;
             @include desktop {
                 position: absolute;
                 bottom: 30px;
