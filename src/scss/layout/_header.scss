@@ -1,7 +1,11 @@
 .header {
     @include layout;
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
     margin-bottom: 7px;
+    z-index: 1;
     @include tablet {
         margin-bottom: 40px;
     }
