@@ -5,14 +5,31 @@
         overflow: visible;
     }
 
+    &__showcase {
+        &::after {
+            content: '';
+            background: url(#{$img}/showcase-bottom.png) no-repeat center bottom;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -80px;
+            height: 300px;
+            pointer-events: none;
+            z-index: 1;
+            @include desktop {
+                background-size: 100% auto;
+                background-position: center bottom;
+            }
+        }
+    }
     &__steps {
         background: url(#{$img}/stars.svg) no-repeat center / 100% auto,
                     url(#{$img}/steps-bg.svg) no-repeat top center / 100% 100%;
         background-color: #0c1a34;
         padding: 100px 0 0;
         @include tablet {
-            background-position: center top, top center;
-            background-size: auto, 100% 90%;
+            background-position: center top, top -100px center;
+            background-size: auto, 100% 120%;
             padding-bottom: 40px;
         }
         @include desktop {
@@ -95,7 +112,7 @@
         padding: 125px 0 100px;
         @include tablet {
             background-position: center top, bottom center, top center;
-            background-size: auto, 100% auto, 100%, 90%;
+            background-size: auto, 100% auto, 100% 90%;
         }
         @include desktop {
             padding: 130px 0 50px;
@@ -120,7 +137,7 @@
         z-index: 1;
     }
     &_subtitle {
-        margin: 0 0 15px;
+        margin: 0;
         position: relative;
         z-index: 1;
     }
