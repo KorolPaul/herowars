@@ -8,7 +8,7 @@
     &__showcase {
         &::after {
             content: '';
-            background: url(#{$img}/showcase-bottom.png) no-repeat center bottom;
+            background: url(#{$img}/showcase-bottom.png) no-repeat center bottom / 100% auto;
             position: absolute;
             left: 0;
             right: 0;
@@ -33,7 +33,7 @@
             padding-bottom: 40px;
         }
         @include desktop {
-            padding: 190px 0 150px;
+            padding: 160px 0 40px;
         }
 
         &::after {
@@ -59,7 +59,7 @@
             background-size: auto, 100%;
         }
         @include desktop {
-            padding: 110px 0 150px;
+            padding: 100px 0 120px;
         }
 
         &::after {
@@ -86,7 +86,7 @@
             background-size: auto, 100%;
         }
         @include desktop {
-            padding: 130px 0 150px;
+            padding: 150px 0 150px;
         }
 
         &::after {
@@ -141,6 +141,11 @@
         position: relative;
         z-index: 1;
     }
+    &_text {
+        position: relative;
+        z-index: 1;
+        margin-top: -24px;
+    }
     &_person {
         position: relative;
         z-index: 2;
@@ -153,7 +158,7 @@
             @include desktop {
                 position: absolute;
                 bottom: 40px;
-                left: -65px;
+                left: 15px;
             }
 
             .section__treasures & {

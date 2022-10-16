@@ -13,7 +13,7 @@
 
         @for $i from 0 to 5 {
             & > div:nth-child(#{$i + 1}) {
-                transition-delay: 0.1s * $i;
+                transition-delay: 0.2s * $i;
             }
         }
     }
@@ -24,7 +24,10 @@
             background: url(#{$img}/step-arrow.png) no-repeat center / cover;
             width: 46px;
             height: 24px;
-            margin-top: -80px;
+            margin-top: -125px;
+        }
+        @include desktop {
+            margin-top: -145px;
         }
     }
 }
@@ -59,10 +62,11 @@
         letter-spacing: 1px;
         color: #CDD6E7;
         display: block;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         @include desktop {
             font-size: 28px;
             line-height: 1.14;
+            margin-top: 15px;
         }
     }
     &_text {

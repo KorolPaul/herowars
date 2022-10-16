@@ -15,9 +15,10 @@
     }
 
     &__pumpkin {
-        width: 244px;
-        height: 383px;
-        background: url(#{$img}/pumpkin-king.png) no-repeat center / contain;
+        @include play(45, 176, 1.3s);
+        width: 176px;
+        height: 382px;
+        background: url(#{$img}/pumpkin-king.png) no-repeat top left / auto 100%;
         margin: auto;
     }
     &__warrior {

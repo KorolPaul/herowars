@@ -59,8 +59,14 @@
     }
     &_button {
         @include button-reset;
+        @include hover-scale;
         width: 164px;
         height: 56px;
         background: url(#{$img}/header-button.svg) no-repeat center / 100% auto;
+
+        &:hover,
+        &:active {
+            opacity: 1;
+        }
     }
 }

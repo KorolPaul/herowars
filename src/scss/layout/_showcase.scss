@@ -3,5 +3,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 150px;
+    @include tablet {
+        padding-top: 170px;
+    }
+    @include desktop {
+        padding-top: 250px;
+    }
 }
