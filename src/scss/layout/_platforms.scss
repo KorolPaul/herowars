@@ -25,7 +25,7 @@
         }
 
         .platforms__footer & {
-            margin-bottom: 25px;
+            margin-bottom: 75px;
         }
     }
     &_link {
@@ -67,6 +67,7 @@
 
         .platforms__footer & {
             max-width: 80%;
+            font-size: 12px;
             @include desktop-large {
                 max-width: 1168px;
             }

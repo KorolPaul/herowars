@@ -8,9 +8,14 @@ body {
     font: #{$font-size__small}/#{1.4} $font-family;
     padding: 0;
     scroll-behavior: smooth;
+    overflow: hidden;
     @include tablet {
         font-size: $font-size;
     }
+}
+
+.loaded {
+    overflow: auto;
 }
 
 a {
@@ -78,4 +83,17 @@ a[name] {
 
 .bright {
     color: $cOrange;
+}
+
+.mobile-only {
+    @include tablet {
+        display: none;
+    }
+}
+
+.desktop-only {
+    display: none;
+    @include tablet {
+        display: block;
+    }
 }

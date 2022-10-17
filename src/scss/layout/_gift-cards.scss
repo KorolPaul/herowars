@@ -3,15 +3,15 @@
     flex-direction: column;
     align-items: center;
     gap: 50px;
-    margin: 50px 0 55px;
+    margin: 50px auto 55px;
+    max-width: 900px;
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
         gap: 56px;
-        margin-bottom: 80px;
     }
     @include desktop {
-        margin-bottom: 96px;
+        margin-bottom: 55px;
     }
 
     &_item {
@@ -29,6 +29,23 @@
         position: relative;
         @include desktop {
             margin-bottom: 50px;
+        }
+    }
+    &_count {
+        position: absolute;
+        right: 22px;
+        bottom: 0;
+        font-size: 17px;
+        line-height: 21px;
+        text-align: right;
+        letter-spacing: 0.6px;
+        
+
+        .gift-cards_item:nth-child(1) & {
+            transform: matrix(1, 0.06, -0.06, 1, 0, 0);
+        }
+        .gift-cards_item:nth-child(3) & {
+            transform: matrix(1, 0.04, -0.03, 1, 0, 0);
         }
     }
     &_image {

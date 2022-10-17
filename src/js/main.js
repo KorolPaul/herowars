@@ -2,32 +2,37 @@ const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mouse
 const thresholdSteps = [...Array(10).keys()].map(i => i / 10);
 const isMobile = window.innerWidth <= 768
 const isDesktop = window.innerWidth >= 1000
+let isPreloaderLoaded = false;
+let percent = 0;
 
-// sliders
-const carousel = document.querySelectorAll('.carousel_items');
-carousel.forEach(el => {
-    tns({
-        container: el,
-        items: 1,
-        gutter: 13,
-        mouseDrag: true,
-        autoplay: false,
-        nav: true,
-        navPosition: 'bottom',
-        controls: false,
-        loop: false,
-        responsive: {
-            768: {
-                nav: false,
-                items: 3,
-                gutter: 25,
-                autoWidth: true,
-                controls: true,
-            }
-        }
-    });
+window.addEventListener('load', () => {
+    isPreloaderLoaded = true;
+    if (percent === 100){
+        document.body.classList.add('loaded');
+    }
 })
 
+// preloader
+const preloaderCount = document.getElementById('preloader-value');
+function calculatePreloaderPercents() {
+    let preloaderInterval;
+
+    preloaderInterval = setInterval(() => {
+        preloaderCount.innerText = percent;
+        if (percent >= 100) {
+            clearInterval(preloaderInterval);
+
+            if (isPreloaderLoaded) {
+                document.body.classList.add('loaded');
+            }
+        }
+        percent += 5;
+    }, 80);
+}
+
+if (preloaderCount) {
+    calculatePreloaderPercents();
+}
 
 // menu
 const menuToggleElement = document.querySelector('.menu-toggle');
@@ -146,9 +151,6 @@ function disableScroll() {
 document.addEventListener(wheelEvent, function (event) {
     
 
-
-    
-
     if (posTopOld > posTop) {
         scrolling = true;
         if (partal) {
@@ -159,9 +161,10 @@ document.addEventListener(wheelEvent, function (event) {
 
     posTopOld = posTop;
 
+    console.log(posTop);
     if (event.deltaY > 0) {
-        if (posTop < 2000) {
-            // event.preventDefault()
+        if (posTop < 1000) {
+            //event.preventDefault()
         }
 
         posTop += posMulti;

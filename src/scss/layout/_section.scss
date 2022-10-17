@@ -86,7 +86,7 @@
             background-size: auto, 100%;
         }
         @include desktop {
-            padding: 150px 0 150px;
+            padding: 150px 0 100px;
         }
 
         &::after {
@@ -109,13 +109,18 @@
         background: url(#{$img}/stars.svg) no-repeat center top 10% ,
                     url(#{$img}/faq-bottom.png) no-repeat center bottom 3% / auto 300px,
                     url(#{$img}/faq-bg.svg) no-repeat top center / 100% 90%;
+        background-color: #230817;
         padding: 125px 0 100px;
         @include tablet {
             background-position: center top, bottom center, top center;
             background-size: auto, 100% auto, 100% 90%;
         }
         @include desktop {
-            padding: 130px 0 50px;
+            padding: 150px 0 50px;
+            background-size: auto, 100% auto, 100% 90%;
+        }
+        @include desktop-extra-large {
+            background-size: auto, 100% auto, 100% 90%;
         }
     }
     &__form {
@@ -144,14 +149,22 @@
     &_text {
         position: relative;
         z-index: 1;
-        margin-top: -24px;
+        margin-top: -12px;
+        @include tablet {
+            margin-top: -24px;
+        }
     }
     &_person {
         position: relative;
         z-index: 2;
+        margin-top: -50px;
+        @include desktop {
+            margin-top: 0;
+        }
 
         &__left {
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
             @include tablet {
                 margin: 40px auto 0;
             }

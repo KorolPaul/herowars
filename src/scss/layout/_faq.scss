@@ -27,7 +27,7 @@
         padding: 28px 40px 24px 0;
         border-bottom: 2px solid rgba(174, 189, 216, 0.2);
         position: relative;
-        transition: .2s $easing opacity, .1s $easing border .6s;
+        transition: .2s $easing opacity, .1s $easing border;
         text-transform: capitalize;
         @include tablet {
             padding: 25px 40px 27px 0;
@@ -42,7 +42,6 @@
 
         .opened & {
             border-bottom-color: transparent;
-            transition-delay: .2s, .1s;
         }
     }
     &_header-arrow {
@@ -66,11 +65,10 @@
         line-height: 24px;
         overflow: hidden;
         max-height: 0;
-        transition: .6s linear 0s max-height;
+        transition: .4s ease max-height;
 
         .opened & {
-            max-height: 500px;
-            transition-delay: .1s;
+            max-height: 150px;
         }
     }
     &_radio {
