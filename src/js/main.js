@@ -130,8 +130,12 @@ const faqElements = document.querySelectorAll('.faq_header');
 faqElements.forEach(el => {
     
     el.addEventListener('click', (e) => {
-        faqElements.forEach(el => el.parentElement.classList.remove('opened'));
-        e.currentTarget.parentElement.classList.toggle('opened')
+        faqElements.forEach(el => {
+            if (el !== e.target) {
+                el.parentElement.classList.remove('opened')
+            }
+        });
+        e.currentTarget.parentElement.classList.toggle('opened');
     });
 });
 

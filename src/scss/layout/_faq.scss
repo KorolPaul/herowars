@@ -13,6 +13,12 @@
         padding: 0 0 230px;
     }
 
+    .results-page & {
+        @include desktop {
+            padding: 0 0 330px;
+        }
+    }
+
     &_column {
         @include desktop {
             flex-grow: 1;

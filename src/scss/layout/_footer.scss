@@ -26,6 +26,17 @@
         }
     }
 
+    .results-page & {
+        background: transparent;
+        @include desktop {
+            margin-top: -250px;
+        }
+
+        &::before {
+            content: none;
+        }
+    }
+
     &_holder {
         @include layout;
         position: relative;

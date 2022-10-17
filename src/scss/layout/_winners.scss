@@ -1,0 +1,30 @@
+.winners {
+    margin: 0 0 100px;
+    @include desktop {
+        margin-bottom: 200px;
+    }
+
+    &_title {
+        margin: 0 0 40px;
+    }
+    &_table {
+        @include invisible-text;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        @include desktop {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+        }
+    }
+
+    &_table-item {
+        color: $color;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 28px;
+        text-align: center;
+        width: 100%;
+    }
+}
