@@ -30,6 +30,7 @@
             top				: 0px;
             right			: 0px;	
             bottom			: 0px;
+            pointer-events: none;
         }
         #main, #main>div{
             position		: absolute;							
@@ -48,17 +49,45 @@
             <span id="preloader-value">0</span>%
         </div>
     </div>
+    <script>
+        let isPreloaderLoaded = false;
+        let percent = 0;
+        
+        // preloader
+        const preloaderCount = document.getElementById('preloader-value');
+        function calculatePreloaderPercents() {
+            let preloaderInterval;
+
+            preloaderInterval = setInterval(() => {
+                preloaderCount.innerText = percent;
+                if (percent >= 100) {
+                    clearInterval(preloaderInterval);
+
+                    if (isPreloaderLoaded) {
+                        document.body.classList.add('loaded');
+                    }
+                }
+                percent += 5;
+            }, 80);
+        }
+
+        calculatePreloaderPercents();
+    </script>
 
     <header class="header">
         <div class="header_holder">
             <div class="header_logo">
-                <img src="src/img/header-logo.png" alt="">
+                <a href="#">
+                    <img src="src/img/header-logo.png" alt="">
+                </a>
             </div>
-            <span class="logo">
-                <img src="src/img/logo.png" alt="">
-            </span>
+            <!--
+                <span class="logo">
+                    <img src="src/img/logo.png" alt="">
+                </span>
+            -->
             <div class="header_button-wrapper">
-                <button class="header_button"></button>
+                <a class="header_button" href="https://herowars.onelink.me/dPUs/c48kgp6c" target="_blank"></a>
             </div>
         </div>
     </header>
@@ -70,17 +99,13 @@
                     <div id="pixi"></div>
                 </div>
                 <div class="showcase_content">
+                    <!--
                     <h2 class="section_subtitle">Halloween is coming</h2>
                     <h1 class="section_title">
                         Let’s open a portal
                     </h1>
                     <p class="section_text js-animation">to the Dominion together to get amazing treasures!</p>
-                    <div class="showcase_info">
-                        <p class="showcase_info-title">To get the energy to open the portal</p>
-                        <p>We need as many Hero Wars installs as possible! </p>
-                        <p> The more players there are, and the quicker they level up, the more rewards we will receive through the portal.</p>
-                    </div>
-                    <img id="progress" alt="progress" src="" />
+                    -->
                 </div>
             </div>
         </section>
@@ -132,18 +157,18 @@
                 </h1>
                 <div class="platforms">
                     <div class="platforms_holder">
-                        <a href="#" class="platforms_link js-animation">
+                        <a href="https://herowars.onelink.me/dPUs/c48kgp6c" class="platforms_link js-animation" target="__blank">
                             <img src="src/img/browser.svg" alt="" class="platforms_item">
                         </a>
-                        <a href="#" class="platforms_link js-animation">
+                        <a href="https://herowars.onelink.me/dPUs/c48kgp6c" class="platforms_link js-animation" target="__blank">
                             <img src="src/img/appstore.svg" alt="" class="platforms_item">
                         </a>
-                        <a href="#" class="platforms_link js-animation">
+                        <a href="https://herowars.onelink.me/dPUs/c48kgp6c" class="platforms_link js-animation" target="__blank">
                             <img src="src/img/googleplay.svg" alt="" class="platforms_item">
                         </a>
                     </div>
                     <p class="platforms_disclaimer">
-                        By participating in the Sweepstakes, You agree to be fully unconditionally bound by read <a href="#"> official rules</a>
+                        By participating in the sweepstakes, You agree to be fully unconditionally bound by read <a href="https://herowarsportal.com/rules" target="_blank"> official rules</a>
                     </p>
                 </div>
                 <div class="section_person section_person__right">
@@ -233,7 +258,7 @@
                     <p class="schedule_title">
                         We'll announce 160 lucky winners on November 2. 
                         <br>
-                        Read the <a href="#">official rules here</a>.
+                        Read the <a href="https://herowarsportal.com/rules" target="_blank">official rules here</a>.
                     </p>
                     <p class="schedule_disclaimer">Enter the sweepstakes from October 21 - 9 a.m.  (EST) till October 31 - 11:59 p.m. (EST). Results - November 2! </p>
                 </div>
@@ -392,23 +417,23 @@
     <footer class="footer">
         <div class="footer_holder">
             <nav class="footer_menu">
-                <a href="#" class="footer_link">Terms of Use</a>
-                <a href="#" class="footer_link">Privacy Policy</a>
+                <a href="https://herowarsportal.com/terms" class="footer_link" target="_blank">Terms of Use</a>
+                <a href="https://nexters.com/en/privacy_policy" class="footer_link" target="_blank">Privacy Policy</a>
             </nav>
             <p class="footer_copyrights">©2022 Nexters Global Limited. Registered at 107 Faneromenis Avenue, Larnaca, 6031, Cyprus</p>
             <div class="platforms platforms__footer">
                 <div class="platforms_holder">
-                    <a href="#" class="platforms_link">
+                    <a href="https://herowars.onelink.me/dPUs/c48kgp6c" class="platforms_link" target="__blank">
                         <img src="src/img/browser-footer.svg" alt="" class="platforms_item">
                     </a>
-                    <a href="#" class="platforms_link">
+                    <a href="https://herowars.onelink.me/dPUs/c48kgp6c" class="platforms_link" target="__blank">
                         <img src="src/img/appstore-footer.svg" alt="" class="platforms_item">
                     </a>
-                    <a href="#" class="platforms_link">
+                    <a href="https://herowars.onelink.me/dPUs/c48kgp6c" class="platforms_link" target="__blank">
                         <img src="src/img/googleplay-footer.svg" alt="" class="platforms_item">
                     </a>
                 </div>
-                <p class="platforms_disclaimer">NO PURCHASE NECESSARY. A PURCHASE WILL NOT INCREASE YOUR CHANCES OF WINNING. Open to non-registered users of “Hero Wars”, legal residents of the 50 United States (D.C.), 18 years of age and older. Void where prohibited. Sweepstakes begins 10/21/22 and ends 10/31/22. For Official Rules, prize descriptions and odds disclosure, <a href="#">click here</a>. Sponsor: Nexters Global Ltd. 107 Faneromenis Avenue, Larnaca, 6031, Cyprus.</p>
+                <p class="platforms_disclaimer">NO PURCHASE NECESSARY. A PURCHASE WILL NOT INCREASE YOUR CHANCES OF WINNING. Open to non-registered users of “Hero Wars”, legal residents of the 50 United States (D.C.), 18 years of age and older. Void where prohibited. Sweepstakes begins 10/21/22 and ends 10/31/22. For Official Rules, prize descriptions and odds disclosure, <a href="https://herowarsportal.com/rules" target="_blank">click here</a>. Sponsor: Nexters Global Ltd. 107 Faneromenis Avenue, Larnaca, 6031, Cyprus.</p>
             </div>
         </div>
     </footer>
@@ -418,11 +443,12 @@
             <p>Our website uses cookies to keep ensure the highest quality service. By continuing using the site, you agree to our Privacy Policy </p>
         </div>
         <button class="cookies_button">accept</button>
-        <a class="cookies_link" href="#">Learn more</a>
+        <a class="cookies_link" href="https://nexters.com/en/privacy_policy" target="_blank">Learn more</a>
     </div>
 
     <script src="./src/js/js-cookie.js"></script>
     <script src="./src/js/canvas.js"></script>
     <script src="./src/js/main.js"></script>
+    <script src="./src/js/analitics.js"></script>
 </body>
 </html>

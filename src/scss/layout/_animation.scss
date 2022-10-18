@@ -1,8 +1,10 @@
 .js-animation {
-    opacity: 0;
-    transform: scale(0.5);
-    transition: .5s $easing opacity,
-                .5s $easing transform;
+    @include tablet {
+        opacity: 0;
+        transform: scale(0.5);
+        transition: .5s $easing opacity,
+                    .5s $easing transform;
+    }
 
     &.animated {
         opacity: 1;
@@ -12,10 +14,12 @@
 
 .section_title,
 .section_subtitle {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: .7s $easeOutCirc opacity,
-                .7s $easeOutCirc transform;
+    @include tablet {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: .7s $easeOutCirc opacity,
+                    .7s $easeOutCirc transform;
+    }
 
     &.animated {
         opacity: 1;

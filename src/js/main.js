@@ -2,8 +2,7 @@ const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mouse
 const thresholdSteps = [...Array(10).keys()].map(i => i / 10);
 const isMobile = window.innerWidth <= 768
 const isDesktop = window.innerWidth >= 1000
-let isPreloaderLoaded = false;
-let percent = 0;
+
 
 window.addEventListener('load', () => {
     isPreloaderLoaded = true;
@@ -12,27 +11,6 @@ window.addEventListener('load', () => {
     }
 })
 
-// preloader
-const preloaderCount = document.getElementById('preloader-value');
-function calculatePreloaderPercents() {
-    let preloaderInterval;
-
-    preloaderInterval = setInterval(() => {
-        preloaderCount.innerText = percent;
-        if (percent >= 100) {
-            clearInterval(preloaderInterval);
-
-            if (isPreloaderLoaded) {
-                document.body.classList.add('loaded');
-            }
-        }
-        percent += 5;
-    }, 80);
-}
-
-if (preloaderCount) {
-    calculatePreloaderPercents();
-}
 
 // menu
 const menuToggleElement = document.querySelector('.menu-toggle');
@@ -152,8 +130,8 @@ function disableScroll() {
     window.addEventListener('touchmove', preventDefault, { passive: false }); // mobile
 }
 
-document.addEventListener(wheelEvent, function (event) {
-    
+var lastScrollTop = 0;
+document.addEventListener('scroll', function (event) {
 
     if (posTopOld > posTop) {
         scrolling = true;
@@ -165,17 +143,15 @@ document.addEventListener(wheelEvent, function (event) {
 
     posTopOld = posTop;
 
-    console.log(posTop);
-    if (event.deltaY > 0) {
-        if (posTop < 1000) {
-            //event.preventDefault()
-        }
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+    if (scrollTop > lastScrollTop) {
         posTop += posMulti;
     }
     else {
         posTop -= posMulti;
     }
 
+    lastScrollTop = scrollTop;
     stageSpeedV = DistancePointToPoint(0, posTop, 0, posTopOld);
-}, { passive: false })
+})

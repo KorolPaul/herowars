@@ -1,6 +1,6 @@
 .section {
     position: relative;
-    //overflow: hidden;
+    overflow: visible;
     @include desktop {
         overflow: visible;
     }
@@ -8,15 +8,16 @@
     &__showcase {
         &::after {
             content: '';
-            background: url(#{$img}/showcase-bottom.png) no-repeat center bottom / 100% auto;
+            background: url(#{$img}/showcase-bottom.png) no-repeat center bottom / auto 150px;
             position: absolute;
             left: 0;
             right: 0;
-            bottom: -80px;
+            bottom: -65px;
             height: 300px;
             pointer-events: none;
             z-index: 1;
             @include desktop {
+                bottom: -80px;
                 background-size: 100% auto;
                 background-position: center bottom;
             }
@@ -24,7 +25,7 @@
     }
     &__steps {
         background: url(#{$img}/stars.svg) no-repeat center / 100% auto,
-                    url(#{$img}/steps-bg.svg) no-repeat top center / 100% 100%;
+                    url(#{$img}/steps-bg.svg) no-repeat top -120px center / 100% 100%;
         background-color: #0c1a34;
         padding: 100px 0 0;
         @include tablet {
@@ -224,7 +225,7 @@
             @include desktop {
                 position: absolute;
                 bottom: 30px;
-                right: 100px;
+                right: 170px;
             }
 
             .section__platforms & {
