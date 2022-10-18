@@ -9,6 +9,11 @@ window.addEventListener('load', () => {
     if (percent === 100){
         document.body.classList.add('loaded');
     }
+
+    const persons = document.querySelectorAll('.person');
+    persons.forEach(person => {
+        person.classList.add(person.dataset.name)
+    })
 })
 
 
