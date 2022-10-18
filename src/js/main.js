@@ -188,6 +188,7 @@ function handleScroll(event) {
     if (isMobile) {
         isScrollDown = swipeFunc.touches.direction === 'down';
     }
+    
     console.log(portalShow);
     if (isScrollDown) {
         if (!portalShow) {
