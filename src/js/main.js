@@ -213,42 +213,6 @@ document.addEventListener(wheelEvent, handleScroll, { passive: false });
 document.addEventListener('touchmove', handleScroll, { passive: false });
 
 
-/*
-var lastScrollTop = 0;
-document.addEventListener(wheelEvent, function (event) {
-
-    if (posTopOld > posTop) {
-        scrolling = true;
-        if (partal) {
-            partal = false;
-            partalHide();
-        }
-    }
-
-    posTopOld = posTop;
-
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-        //console.log(scrollTop, posTop);
-//
-        //if (scrollTop < 9500) {
-        //    event.preventDefault();
-        //    disableScroll()
-        //}
-
-        posTop += posMulti;
-    }
-    else {
-        posTop -= posMulti;
-    }
-
-    lastScrollTop = scrollTop;
-    stageSpeedV = DistancePointToPoint(0, posTop, 0, posTopOld);
-}, {passive: false})
- */
-
-
 var swipeFunc = {
     touches: {
         "touchstart": { "x": -1, "y": -1 },
@@ -259,7 +223,7 @@ var swipeFunc = {
     touchHandler: function (event) {
         var touch;
         if (typeof event !== 'undefined') {
-            event.preventDefault();
+            // event.preventDefault();
             if (typeof event.touches !== 'undefined') {
                 touch = event.touches[0];
                 switch (event.type) {
