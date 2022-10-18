@@ -125,13 +125,51 @@ if (submitEl) {
 
 /* animation */
 function disableScroll() {
-    window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
-    window.addEventListener(wheelEvent, preventDefault, { passive: false }); // modern desktop
-    window.addEventListener('touchmove', preventDefault, { passive: false }); // mobile
+    window.addEventListener('DOMMouseScroll', e => e.preventDefault(), false); // older FF
+    window.addEventListener(wheelEvent, e => e.preventDefault(), { passive: false }); // modern desktop
+    window.addEventListener('touchmove', e => e.preventDefault(), { passive: false }); // mobile
 }
 
+function handleScroll(event) {
+    console.log(posTop);
+    if (posTopOld > posTop) {
+        scrolling = true;
+        if (partal) {
+            partal = false;
+            partalHide();
+        }
+    }
+
+    posTopOld = posTop;
+
+    let isScrollDown = event.deltaY > 0;
+    if (isMobile) {
+        isScrollDown = swipeFunc.touches.direction === 'down';
+    }
+
+    if (isScrollDown) {
+        if (posTop < 750 && !isMobile) {
+            event.preventDefault()
+        }
+        if (posTop < 2000 && isMobile) {
+            event.preventDefault()
+        }
+        posTop += posMulti;
+    }
+    else if (posTop > 0) {
+        posTop -= posMulti;
+    }
+
+    stageSpeedV = DistancePointToPoint(0, posTop, 0, posTopOld);
+}
+
+document.addEventListener(wheelEvent, handleScroll, { passive: false });
+document.addEventListener('touchmove', handleScroll, { passive: false });
+
+
+/*
 var lastScrollTop = 0;
-document.addEventListener('scroll', function (event) {
+document.addEventListener(wheelEvent, function (event) {
 
     if (posTopOld > posTop) {
         scrolling = true;
@@ -146,6 +184,13 @@ document.addEventListener('scroll', function (event) {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop) {
+        //console.log(scrollTop, posTop);
+//
+        //if (scrollTop < 9500) {
+        //    event.preventDefault();
+        //    disableScroll()
+        //}
+
         posTop += posMulti;
     }
     else {
@@ -154,4 +199,44 @@ document.addEventListener('scroll', function (event) {
 
     lastScrollTop = scrollTop;
     stageSpeedV = DistancePointToPoint(0, posTop, 0, posTopOld);
-})
+}, {passive: false})
+ */
+
+
+var swipeFunc = {
+    touches: {
+        "touchstart": { "x": -1, "y": -1 },
+        "touchmove": { "x": -1, "y": -1 },
+        "touchend": false,
+        "direction": "undetermined"
+    },
+    touchHandler: function (event) {
+        var touch;
+        if (typeof event !== 'undefined') {
+            event.preventDefault();
+            if (typeof event.touches !== 'undefined') {
+                touch = event.touches[0];
+                switch (event.type) {
+                    case 'touchstart':
+                    case 'touchmove':
+                        swipeFunc.touches[event.type].x = touch.pageX;
+                        swipeFunc.touches[event.type].y = touch.pageY;
+                        break;
+                    case 'touchend':
+                        swipeFunc.touches[event.type] = true;
+                        if (swipeFunc.touches.touchstart.y > -1 && swipeFunc.touches.touchmove.y > -1) {
+                            swipeFunc.touches.direction = swipeFunc.touches.touchstart.y < swipeFunc.touches.touchmove.y ? "up" : "down";
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+    },
+    init: function () {
+        document.addEventListener('touchstart', swipeFunc.touchHandler, false);
+        document.addEventListener('touchmove', swipeFunc.touchHandler, false);
+        document.addEventListener('touchend', swipeFunc.touchHandler, false);
+    }
+};
+swipeFunc.init();

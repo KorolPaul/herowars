@@ -16,7 +16,7 @@
             height: 300px;
             pointer-events: none;
             z-index: 1;
-            @include desktop {
+            @include tablet {
                 bottom: -80px;
                 background-size: 100% auto;
                 background-position: center bottom;
