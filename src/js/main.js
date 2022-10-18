@@ -118,9 +118,51 @@ faqElements.forEach(el => {
 });
 
 /* form */
+const feedbackAPiUrl = 'https://api.herowarsportal.com/api/feedback';
 const submitEl = document.querySelector('.form_submit');
+
+const validateEmail = (email) => {
+    return String(email)
+        .toLowerCase()
+        .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+};
+
 if (submitEl) {
-    submitEl.addEventListener('click', (e) => e.target.setAttribute('disabled', true));
+    submitEl.addEventListener('click', (e) => {
+        const email = document.getElementById('email');
+        const question = document.getElementById('question');
+
+        if (email.value === '' || !validateEmail(email.value)) {
+            email.parentElement.classList.add('error')
+        }
+        if (question.value === '') {
+            question.parentElement.classList.add('error')
+        }
+
+        if (email.value === '' || !validateEmail(email.value) || question.value === '') {
+            return
+        }
+
+        email.parentElement.classList.remove('error');
+        question.parentElement.classList.remove('error');
+
+        fetch(feedbackAPiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                email: email.value,
+                question: question.value,
+            })
+        }).then(() => {
+            e.target.setAttribute('disabled', true)
+        })
+
+        
+    });
 }
 
 /* animation */
@@ -146,14 +188,12 @@ function handleScroll(event) {
     if (isMobile) {
         isScrollDown = swipeFunc.touches.direction === 'down';
     }
-
+    console.log(portalShow);
     if (isScrollDown) {
-        if (posTop < 750 && !isMobile) {
+        if (!portalShow) {
             event.preventDefault()
         }
-        if (posTop < 2000 && isMobile) {
-            event.preventDefault()
-        }
+
         posTop += posMulti;
     }
     else if (posTop > 0) {

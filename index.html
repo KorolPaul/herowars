@@ -43,7 +43,6 @@
     </style>
 </head>
 <body>
-    <input type="hidden" id="portalCount" value="9000" />
 
     <script>
         // portalCount = parseInt(document.getElementById('portalCount').value);
@@ -202,7 +201,7 @@
                         <div class="gift-cards_image-wrapper">
                             <img src="src/img/gift-1.png" alt="" class="gift-cards_image">
                             <span class="gift-cards_count">
-                                 10/100
+                                 <span id="card_100">10</span>/100
                                 <div>cards</div>
                             </span>
                         </div>
@@ -212,7 +211,7 @@
                         <div class="gift-cards_image-wrapper">
                             <img src="src/img/gift-2.png" alt="" class="gift-cards_image">
                             <span class="gift-cards_count">
-                                 5/50
+                                <span id="card_50">5</span>/50
                                 <div>cards</div>
                             </span>
                         </div>
@@ -222,7 +221,7 @@
                         <div class="gift-cards_image-wrapper">
                             <img src="src/img/gift-3.png" alt="" class="gift-cards_image">
                             <span class="gift-cards_count">
-                                 2/10
+                                <span id="card_10">5</span>/10
                                 <div>cards</div>
                             </span>
                         </div>
@@ -397,16 +396,12 @@
                    Get answers
                 </h1>
                 <div class="form">
-                    <div class="form_row js-animation error">
-                        <input type="email" placeholder="Your email">
+                    <div class="form_row js-animation">
+                        <input type="email" placeholder="Your email" id="email">
                         <span class="form_error">Please, write correct email</span>
                     </div>
                     <div class="form_row js-animation">
-                        <input type="text" placeholder="Question title">
-                        <span class="form_error">Please, write question title</span>
-                    </div>
-                    <div class="form_row js-animation">
-                        <textarea placeholder="Question text"></textarea>
+                        <textarea placeholder="Question text" id="question"></textarea>
                         <span class="form_error">Please, write question</span>
                     </div>
                     <div class="form_row js-animation">
@@ -455,7 +450,9 @@
 
     <script src="./src/js/js-cookie.js"></script>
     <script src="./src/js/canvas.js"></script>
+    
     <script src="./src/js/main.js"></script>
+    <script src="./src/js/data.js"></script>
     <script src="./src/js/analitics.js"></script>
 </body>
 </html>
