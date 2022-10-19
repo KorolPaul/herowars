@@ -1,6 +1,7 @@
-const infoAPiUrl = 'https://api.herowarsportal.com/api/site-info';
 
 function loadData() {
+    const infoAPiUrl = `https://api.herowarsportal.com/api/site-info?time=${Date.now()}`;
+
     fetch(infoAPiUrl).then(responce => responce.json()).then(data => {
         const { phase } = data.data;
         const { card_50, card_100, card_500, card_all } = phase;

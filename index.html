@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="48x48px.ico">
-    <link rel="icon" type="image/x-icon" href="48x48px.ico">
-    <link rel="icon" type="image/png" href="16x16px.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="32x32px.png" sizes="32x32">
+    <link rel="shortcut icon" href="favicon-48x48.ico">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"> 
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="48x48px.png" sizes="48x48">
     <meta content="telephone=no" name="format-detection">
     <meta name="HandheldFriendly" content="true">
@@ -24,7 +23,6 @@
         }
         #main{
             visibility		: hidden;	
-            background		: #ffffff no-repeat center center;
             background-size	: cover;
             left			: 0px;	
             top				: 0px;
@@ -43,11 +41,6 @@
 </head>
 <body>
 
-    <script>
-        // portalCount = parseInt(document.getElementById('portalCount').value);
-        // console.log(portalCount);
-    </script>
-
     <div class="preloader">
         <img src="src/img/preloader-logo.png" alt="" class="preloader_logo">
         <div class="preloader_count">
@@ -65,14 +58,19 @@
 
             preloaderInterval = setInterval(() => {
                 preloaderCount.innerText = percent;
-                if (percent >= 100) {
+                if (percent >= 99) {
                     clearInterval(preloaderInterval);
 
                     if (isPreloaderLoaded) {
                         document.body.classList.add('loaded');
                     }
+                    return
                 }
-                percent += 5;
+                if (percent > 90) {
+                    percent += 1;
+                } else {
+                    percent += 5;
+                }
             }, 80);
         }
 
@@ -173,7 +171,7 @@
                         </a>
                     </div>
                     <p class="platforms_disclaimer">
-                        By participating in the sweepstakes, You agree to be fully unconditionally bound by read <a href="https://herowarsportal.com/rules" target="_blank"> official rules</a>
+                        By participating in the sweepstakes, you agree to be fully unconditionally bound by read <a href="https://herowarsportal.com/rules" target="_blank"> the official rules</a>
                     </p>
                 </div>
                 <div class="section_person section_person__right">
@@ -263,7 +261,7 @@
                     <p class="schedule_title">
                         We'll announce 160 lucky winners on November 2. 
                         <br>
-                        Read the <a href="https://herowarsportal.com/rules" target="_blank">official rules here</a>.
+                        Read the <a href="https://herowarsportal.com/rules" target="_blank">the official rules here</a>.
                     </p>
                     <p class="schedule_disclaimer">Enter the sweepstakes from October 21 - 9 a.m.  (EST) till October 31 - 11:59 p.m. (EST). Results - November 2! </p>
                 </div>
@@ -441,7 +439,7 @@
 
     <div class="cookies">
         <div class="cookies_text">
-            <p>Our website uses cookies to keep ensure the highest quality service. By continuing using the site, you agree to our Privacy Policy </p>
+            <p>Our website uses cookies to keep ensure the highest quality service. By continuing using the site, you agree to our <a href="https://nexters.com/en/privacy_policy" target="_blank">Privacy Policy</a> </p>
         </div>
         <button class="cookies_button">accept</button>
         <a class="cookies_link" href="https://nexters.com/en/privacy_policy" target="_blank">Learn more</a>

@@ -62,6 +62,7 @@
         @include hover-scale;
         width: 164px;
         height: 56px;
+        display: block;
         background: url(#{$img}/header-button.svg) no-repeat center / 100% auto;
 
         &:hover,

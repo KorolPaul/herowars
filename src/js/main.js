@@ -6,8 +6,11 @@ const isDesktop = window.innerWidth >= 1000
 
 window.addEventListener('load', () => {
     isPreloaderLoaded = true;
-    if (percent === 100){
-        document.body.classList.add('loaded');
+    if (percent >= 99){
+        preloaderCount.innerText = percent;
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 100);
     }
 
     const persons = document.querySelectorAll('.person');
@@ -199,15 +202,17 @@ function handleScroll(event) {
         document.body.classList.remove('portal-show');
     }
     
-    console.log('portalShow', portalShow, 'isScrollDown', isScrollDown);
+    // console.log('portalShow', portalShow, 'isScrollDown', isScrollDown);
     if (isScrollDown) {
         if (!portalShow) {
-            event.preventDefault()
+            event.preventDefault();
+        } else {
+            return;
         }
 
         posTop += posMulti;
     }
-    else if (posTop > 0) {
+    else if (posTop > 0 && document.body.scrollTop === 0) {
         posTop -= posMulti;
     }
 
