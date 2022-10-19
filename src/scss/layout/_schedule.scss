@@ -47,7 +47,9 @@
         @include gradiented-text(#DBDCF8, #A0B2CE, 180deg);
         filter: drop-shadow(0px 2px 0px #5A6C99) drop-shadow(0px 2px 0px #5A6C99);
 
-        .active & {
+        .schedule_panel-item:first-child &,
+        .landing-phase-2 .schedule_panel-item:nth-child(2) &,
+        .landing-phase-3 .schedule_panel-item:nth-child(3) & {
             @include gradiented-text(#FFE500, #FAB820, 180deg);
             filter: drop-shadow(0px 2px 0px #B56B05) drop-shadow(0px 2px 0px #B56B05);
         }
@@ -79,9 +81,11 @@
         font-size: 16px;
         line-height: 21px;
 
-        .active & {
+        .schedule_panel-item:first-child &,
+        .landing-phase-2 .schedule_panel-item:nth-child(2) &,
+        .landing-phase-3 .schedule_panel-item:nth-child(3) & {
             @include gradiented-text(#FFE500, #FAB820, 180deg);
-            filter: drop-shadow(0px 1px 0px #B56B05) drop-shadow(0px 1px 0px #B56B05);
+            filter: drop-shadow(0px 2px 0px #B56B05) drop-shadow(0px 2px 0px #B56B05);
         }
     }
     &_title {

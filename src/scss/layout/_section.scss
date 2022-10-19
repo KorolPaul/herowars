@@ -193,6 +193,7 @@
         position: relative;
         z-index: 2;
         margin-top: -50px;
+        pointer-events: none;
         @include desktop {
             margin-top: 0;
         }
@@ -211,6 +212,9 @@
 
             .section__treasures & {
                 @include desktop {
+                    left: 100px;
+                }
+                @include desktop-large {
                     left: 150px;
                 }
             }
@@ -222,6 +226,11 @@
             margin-left: -$indent;
             margin-right: -$indent;
             @include desktop {
+                position: absolute;
+                bottom: 30px;
+                right: 120px;
+            }
+            @include desktop-large {
                 position: absolute;
                 bottom: 30px;
                 right: 170px;

@@ -30,6 +30,7 @@
         background: transparent;
         @include desktop {
             margin-top: -250px;
+            z-index: 3;
         }
 
         &::before {

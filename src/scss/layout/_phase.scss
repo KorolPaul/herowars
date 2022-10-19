@@ -1,0 +1,26 @@
+.phase-1 {
+    .landing-phase-2 &,
+    .landing-phase-3 & {
+        display: none;
+    }
+
+    .landing-phase-1 & {
+        display: block;
+    }
+}
+
+.phase-2 {
+    display: none;
+
+    .landing-phase-2 & {
+        display: block;
+    }
+}
+
+.phase-3 {
+    display: none;
+
+    .landing-phase-3 & {
+        display: block;
+    }
+}

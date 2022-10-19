@@ -1,13 +1,24 @@
 
+function createWinner(name, id) {
+    const el = document.createElement('span');
+    el.classList.add('winners_table-item');
+    el.innerHTML = `${name} ${id}`;
+
+    return el;
+}
+
 function loadData() {
     const infoAPiUrl = `https://api.herowarsportal.com/api/site-info?time=${Date.now()}`;
 
     fetch(infoAPiUrl).then(responce => responce.json()).then(data => {
-        const { phase } = data.data;
-        const { card_50, card_100, card_500, card_all } = phase;
+        const { phase, winners } = data.data;
+        const { card_50, card_100, card_500, card_all, portal, landing } = phase;
+
+
+        portalLevel = portal;
 
         portalCount = phase?.install;
-        portalCountOld = localStorage.getItem('portalCount')
+        portalCountOld = localStorage.getItem('portalCount');
         localStorage.setItem('portalCount', portalCount);
 
 
@@ -16,6 +27,30 @@ function loadData() {
         document.getElementById('card_10').innerHTML = card_500;
         document.getElementById('card_all').innerHTML = card_all;
         document.getElementById('card_all_mobile').innerHTML = card_all;
+
+        document.body.classList.add(`landing-phase-${landing}`);
+
+        if (landing === 2 || landing === 3) {
+            document.body.classList.add('results-page');
+        }
+
+        if (landing === 3) {
+            const { card_50, card_100, card_500 } = winners;
+
+            const winnersTable50 = document.getElementById('winners-50');
+            const winnersTable100 = document.getElementById('winners-100');
+            const winnersTable500 = document.getElementById('winners-500');
+
+            card_50.map(card => {
+                winnersTable50.appendChild(createWinner(card.name, card.game_id));
+            });
+            card_100.map(card => {
+                winnersTable100.appendChild(createWinner(card.name, card.game_id));
+            });
+            card_500.map(card => {
+                winnersTable500.appendChild(createWinner(card.name, card.game_id));
+            });
+        }
     })
 }
 

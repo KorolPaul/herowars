@@ -91,7 +91,7 @@ a[name] {
 
 .mobile-only {
     @include tablet {
-        display: none;
+        display: none !important;
     }
 }
 
