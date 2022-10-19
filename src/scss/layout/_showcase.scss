@@ -4,8 +4,19 @@
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
+    position: relative;
     @include tablet {
         //height: 2500px;
+    }
+
+    .portal-show &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50vh;
+        z-index: 2;
     }
 
     &_content {

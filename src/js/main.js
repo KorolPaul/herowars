@@ -178,7 +178,6 @@ function disableScroll() {
 }
 
 function handleScroll(event) {
-    console.log(posTop);
     if (posTopOld > posTop) {
         scrolling = true;
         if (partal) {
@@ -193,8 +192,14 @@ function handleScroll(event) {
     if (isMobile) {
         isScrollDown = swipeFunc.touches.direction === 'down';
     }
+
+    if (portalShow) {
+        document.body.classList.add('portal-show');
+    } else {
+        document.body.classList.remove('portal-show');
+    }
     
-    console.log(portalShow);
+    console.log('portalShow', portalShow, 'isScrollDown', isScrollDown);
     if (isScrollDown) {
         if (!portalShow) {
             event.preventDefault()

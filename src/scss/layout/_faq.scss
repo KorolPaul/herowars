@@ -71,10 +71,15 @@
         line-height: 24px;
         overflow: hidden;
         max-height: 0;
-        transition: .4s ease max-height;
+        @include tablet {
+            transition: .4s ease max-height;
+        }
 
         .opened & {
-            max-height: 150px;
+            max-height: 500px;
+            @include tablet {
+                max-height: 150px;
+            }
         }
     }
     &_radio {
