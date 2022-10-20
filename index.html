@@ -538,13 +538,17 @@
     <script>
         //Initializing Smart Script arguments
         var oneLinkURL = "https://herowars.onelink.me/dPUs";
-        var mediaSource = {keys:["pid"],defaultValue:"influencer"};
+        var mediaSource = {keys:["pid"],defaultValue:"influencerHalloween"};
         var campaign = {keys:["c"]};
         var adSet = {keys:["af_adset"]};
         var ad = {keys:["af_ad"]};
         var af_web_dp = {paramKey:"af_web_dp",keys:["site"]};
         var channel = {keys:["af_channel"]};
         var deepLinkValue = {keys:["deep_link_value"]};
+        var afSub1 = {keys:["af_sub1"]};
+        var afSub2 = {keys:["af_sub2"]};
+        var afSub3 = {keys:["af_sub3"]};
+        var is_retargeting = {paramKey:"is_retargeting",keys:["is_retargeting"]};
         var custom_ss_ui = {paramKey:"af_ss_ui",defaultValue:"true"};
 
         //Call the function after embedding the code through a global parameter on the window object called window.AF_SMART_SCRIPT.
@@ -558,10 +562,14 @@
                 ad: ad,
                 afCustom: [
                     af_web_dp,
+                    is_retargeting,
                     custom_ss_ui
                 ],
                 channel: channel,
-                deepLinkValue: deepLinkValue
+                deepLinkValue: deepLinkValue,
+                afSub1: afSub1,
+                afSub2: afSub2,
+                afSub3: afSub3
             }
         });
 

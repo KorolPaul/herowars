@@ -172,10 +172,9 @@ function handleScroll(event) {
             partalHide();
         }
     }
-
     posTopOld = posTop;
 
-    let isScrollDown = event.deltaY > 0;
+    isScrollDown = event.deltaY > 0;
     if (isMobile) {
         isScrollDown = swipeFunc.touches.direction === 'down';
     }
@@ -185,8 +184,7 @@ function handleScroll(event) {
     } else {
         document.body.classList.remove('portal-show');
     }
-    
-    // console.log('portalShow', portalShow, 'isScrollDown', isScrollDown);
+
     if (isScrollDown) {
         if (!portalShow) {
             event.preventDefault();
@@ -194,19 +192,55 @@ function handleScroll(event) {
             return;
         }
 
-        posTop += posMulti;
+        animDown = false;
+        posTop++;
     }
     else if (document.body.scrollTop === 0) {
-        posTop -= posMulti;
+        animDown = true;
+        posTop--;
     }
+    if (stateAnim == -1) {
+        stateAnim = 0;
+    }
+    if (posTopOld != posTop) {
+        wheelNow = true;
+    }
+}
 
-    stageSpeedV = DistancePointToPoint(0, posTop, 0, posTopOld);
+function handleTouchMove(event) {
+
+    if (isTouch && !scrollNow) {
+        touchPos.y = event.data.getLocalPosition(appMc.mcUI).y;
+        if (touchPos.y > touchPos.oldY) {
+            if (partal) {
+                portalShow = true;
+            }
+            animDown = true;
+        }
+        else {
+            animDown = false;
+        }
+
+        if (stateAnim == -1) {
+            stateAnim = 0;
+        }
+    }
+}
+function handleTouchStart(event) {
+    isTouch = true;
+    touchPos.y = touchPos.oldY = event.data.getLocalPosition(appMc.mcUI).y;
+    if (portalShow) {
+        document.body.classList.add('portal-show');
+    } else {
+        document.body.classList.remove('portal-show');
+    }
+}
+function handleTouchEnd(event) {
+    touchLast = touchTop;
+    isTouch = false;
 }
 
 document.addEventListener(wheelEvent, handleScroll, { passive: false });
-document.addEventListener('touchmove', handleScroll, { passive: false });
-
-
 var swipeFunc = {
     touches: {
         "touchstart": { "x": -1, "y": -1 },
