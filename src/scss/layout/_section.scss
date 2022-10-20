@@ -139,7 +139,7 @@
     &__faq {
         background: url(#{$img}/stars.svg) no-repeat center top 10% ,
                     url(#{$img}/faq-bottom.png) no-repeat center bottom 3% / auto 300px,
-                    url(#{$img}/faq-bg.svg) no-repeat top center / 100% 90%;
+                    url(#{$img}/faq-bg.svg) no-repeat top -20px center / 100% 90%;
         background-color: #230817;
         padding: 125px 0 100px;
         @include tablet {

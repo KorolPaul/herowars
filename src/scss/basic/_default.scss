@@ -96,7 +96,7 @@ a[name] {
 }
 
 .desktop-only {
-    display: none;
+    display: none !important;
     @include tablet {
         display: block;
     }

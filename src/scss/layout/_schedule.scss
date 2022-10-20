@@ -6,7 +6,7 @@
 
     &_panel {
         background: url(#{$img}/schedule-bg.svg) no-repeat center / 100%;
-        width: 98vw;
+        width: calc(100vw - $indent * 2);
         max-width: 340px;
         margin: 0 auto 32px;
         padding: 0 0 33%;
