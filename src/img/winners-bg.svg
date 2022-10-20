@@ -1,9 +1,28 @@
-<svg width="1320" height="4453" viewBox="0 0 1320 4453" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 4423.82L0.000244141 0.725586H1347.23L1347.23 4423.82L1340.37 4438.3L1150.17 4425.02L1124.82 4420.97L964.304 4430.15L826.717 4434.58L797.161 4439.83L558.956 4428.65L374.032 4435.24L336.809 4423.82L67.0941 4452.57L76.0646 4434.58L0 4423.82Z" fill="url(#paint0_radial_1264_3393)"/>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1320 4453" style="enable-background:new 0 0 1320 4453;" xml:space="preserve"  preserveAspectRatio="none">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:url(#SVGID_00000164491323547106307190000014131523182134351506_);}
+	.st2{mask:url(#SVGID_1_);fill:url(#SVGID_00000141435101545258277480000001710994543729055368_);}
+</style>
 <defs>
-<radialGradient id="paint0_radial_1264_3393" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(673.989 957.31) rotate(-90) scale(906.657 1154.32)">
-<stop stop-color="#460E72"/>
-<stop offset="1" stop-color="#0B1D36"/>
-</radialGradient>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-27.2" y="0.7" width="1347.2" height="4451.8">
+		<feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
 </defs>
+<mask maskUnits="userSpaceOnUse" x="-27.2" y="0.7" width="1347.2" height="4451.8" id="SVGID_1_">
+	<g class="st0">
+		
+			<linearGradient id="SVGID_00000155830707606929654760000001744380832840450487_" gradientUnits="userSpaceOnUse" x1="657.3207" y1="-211.7438" x2="657.3207" y2="265.7619">
+			<stop offset="0" style="stop-color:#000000"/>
+			<stop offset="1" style="stop-color:#FFFFFF"/>
+		</linearGradient>
+		
+			<rect x="-27.2" y="0.7" style="fill:url(#SVGID_00000155830707606929654760000001744380832840450487_);" width="1369.1" height="4470.4"/>
+	</g>
+</mask>
+<radialGradient id="SVGID_00000105428068115198793870000008279334557085949571_" cx="356.0195" cy="2623.3306" r="0.9999" gradientTransform="matrix(5.551673e-14 -906.657 -1154.3199 -7.068171e-14 3028809.25 323744.875)" gradientUnits="userSpaceOnUse">
+	<stop offset="0" style="stop-color:#460E72"/>
+	<stop offset="1" style="stop-color:#0B1D36"/>
+</radialGradient>
+<path style="mask:url(#SVGID_1_);fill:url(#SVGID_00000105428068115198793870000008279334557085949571_);" d="M-27.2,4423.8  l0-4423.1H1320v4423.1l-6.9,14.5l-190.2-13.3l-25.4-4l-160.5,9.2l-137.6,4.4l-29.6,5.2l-238.2-11.2l-184.9,6.6l-37.2-11.4  l-269.7,28.8l9-18L-27.2,4423.8z"/>
 </svg>
