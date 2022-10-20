@@ -52,7 +52,7 @@ function setData(data) {
         const winnersTable100 = document.getElementById('winners-100');
         const winnersTable500 = document.getElementById('winners-500');
 
-        new Array(100).fill({ name: 'Chavoshi.M', game_id: '2643-29342-23581' }).map(card => {
+        card_50.map(card => {
             winnersTable50.appendChild(createWinner(card.name, card.game_id));
         });
         card_100.map(card => {

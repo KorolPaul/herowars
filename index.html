@@ -46,8 +46,8 @@
     <script>
         window.scrollTo(0, 0);
         
-        const isMobile = window.innerWidth <= 768
-        const isDesktop = window.innerWidth >= 1000
+        const isMobile = window.innerWidth <= 768;
+        const isDesktop = window.innerWidth >= 1000;
 
         function onAssetsLoaded() {
             document.body.classList.add('loaded');
@@ -181,7 +181,7 @@
                 <div class="mobile-only">
                     <h2 class="js-animation phase-1">
                         Now open
-                        <div><span id="card_all_mobile">\160 presents</div>
+                        <div><span id="card_all_mobile"></span>\160 presents</div>
                     </h2>
                     <h2 class="js-animation phase-2">
                         coming November 2
@@ -542,7 +542,7 @@
         var campaign = {keys:["c"]};
         var adSet = {keys:["af_adset"]};
         var ad = {keys:["af_ad"]};
-        var af_web_dp = {paramKey:"af_web_dp",keys:["site"]};
+        var af_web_dp = {paramKey:"af_web_dp",keys:["site"],defaultValue:"www.hero-wars.com"};
         var channel = {keys:["af_channel"]};
         var deepLinkValue = {keys:["deep_link_value"]};
         var afSub1 = {keys:["af_sub1"]};

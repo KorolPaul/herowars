@@ -1,7 +1,9 @@
 const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 const thresholdSteps = [...Array(10).keys()].map(i => i / 10);
 
-
+if (isMobile) {
+    document.querySelector('.showcase').style.height = `${screen.height}px`;
+}
 
 // menu
 const menuToggleElement = document.querySelector('.menu-toggle');

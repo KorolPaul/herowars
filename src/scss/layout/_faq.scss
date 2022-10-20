@@ -25,6 +25,9 @@
             width: 50%;
         }
     }
+    &_item {
+        user-select: none;
+    }
     &_header {
         cursor: pointer;
         display: block;

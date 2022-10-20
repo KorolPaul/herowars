@@ -137,25 +137,25 @@
         }
     }
     &__faq {
-        .loaded  & {
+        .loaded & {
             background: url(#{$img}/stars.svg) no-repeat center top 10% ,
                         url(#{$img}/faq-bottom.png) no-repeat center bottom 3% / auto 300px,
                         url(#{$img}/faq-bg.svg) no-repeat top -20px center / 100% 90%;
+            background-color: #230817;
+            padding: 125px 0 100px;
+            @include tablet {
+                background-position: center top, bottom center, top center;
+                background-size: auto, 100% auto, 100% 90%;
+            }
+            @include desktop {
+                padding: 150px 0 50px;
+                background-size: auto, 100% auto, 100% 90%;
+            }
+            @include desktop-extra-large {
+                background-size: auto, 100% auto, 100% 90%;
+            }
         }
 
-        background-color: #230817;
-        padding: 125px 0 100px;
-        @include tablet {
-            background-position: center top, bottom center, top center;
-            background-size: auto, 100% auto, 100% 90%;
-        }
-        @include desktop {
-            padding: 150px 0 50px;
-            background-size: auto, 100% auto, 100% 90%;
-        }
-        @include desktop-extra-large {
-            background-size: auto, 100% auto, 100% 90%;
-        }
 
         .results-page & {
             background-color: #060815;
