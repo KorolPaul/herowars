@@ -1,23 +1,6 @@
 const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 const thresholdSteps = [...Array(10).keys()].map(i => i / 10);
-const isMobile = window.innerWidth <= 768
-const isDesktop = window.innerWidth >= 1000
 
-
-window.addEventListener('load', () => {
-    isPreloaderLoaded = true;
-    if (percent >= 99){
-        preloaderCount.innerText = percent;
-        setTimeout(() => {
-            document.body.classList.add('loaded');
-        }, 100);
-    }
-
-    const persons = document.querySelectorAll('.person');
-    persons.forEach(person => {
-        person.classList.add(person.dataset.name)
-    })
-})
 
 
 // menu
@@ -212,7 +195,7 @@ function handleScroll(event) {
 
         posTop += posMulti;
     }
-    else if (posTop > 0 && document.body.scrollTop === 0) {
+    else if (document.body.scrollTop === 0) {
         posTop -= posMulti;
     }
 
@@ -260,3 +243,79 @@ var swipeFunc = {
     }
 };
 swipeFunc.init();
+
+
+
+function debounce(f, ms) {
+    let isCooldown = false;
+
+    return function () {
+        if (isCooldown) return;
+        f.apply(this, arguments);
+
+        isCooldown = true;
+        setTimeout(() => isCooldown = false, ms);
+    };
+}
+
+function scrollHandler(e) {
+    if (hasPeak()) {
+        return false;
+    }
+
+    const isScrollDown = e.deltaY >= 0;
+    if (isScrollDown) {
+        nextPage()
+    } else {
+        prevPage();
+    }
+}
+
+const debouncedScrollHandler = debounce(scrollHandler, 900)
+var deltas = [null, null, null, null, null, null, null, null, null],
+    timer = null,
+    lock = 0,
+    direction = undefined,
+    cb = debouncedScrollHandler,
+    seen = 0;
+
+function update(e) {
+    // Check for an inertial peak. And if found, lock the peak
+    // checking for 10 more events (decremented in hasPeak on
+    // each new event) to prevent the sample window from registering
+    // true more than once for each peak.
+    if (lethargy.check(e) !== false) {
+        cb(e);
+        return;
+    }
+
+    if (hasPeak()) {
+        lock = 30;
+        seen++;
+        cb(e)
+    }
+    deltas.shift();
+    deltas.push(Math.abs(e.deltaY));
+}
+
+function hasPeak() {
+    if (lock > 0) {
+        lock--;
+        return false;
+    }
+
+    if (deltas[0] == null) return false;
+
+    if (
+        deltas[0] < deltas[4] &&
+        deltas[1] <= deltas[4] &&
+        deltas[2] <= deltas[4] &&
+        deltas[3] <= deltas[4] &&
+        deltas[5] <= deltas[4] &&
+        deltas[6] <= deltas[4] &&
+        deltas[7] <= deltas[4] &&
+        deltas[8] < deltas[4]
+    ) return true;
+
+    return false;
+}

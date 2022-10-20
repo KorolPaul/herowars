@@ -1,9 +1,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hero wars</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Hero Wars Halloween Portal</title>
+    <meta content="Hero Wars Halloween Portal" name="description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
@@ -48,6 +47,10 @@
         </div>
     </div>
     <script>
+        
+        const isMobile = window.innerWidth <= 768
+        const isDesktop = window.innerWidth >= 1000
+
         let isPreloaderLoaded = false;
         let percent = 0;
         
@@ -75,6 +78,22 @@
         }
 
         calculatePreloaderPercents();
+
+        function onAssetsLoaded() {
+            isPreloaderLoaded = true;
+            if (percent >= 99){
+                preloaderCount.innerText = percent;
+                setTimeout(() => {
+                    document.body.classList.add('loaded');
+                }, 100);
+            }
+
+            const persons = document.querySelectorAll('.person');
+            persons.forEach(person => {
+                person.classList.add(person.dataset.name)
+            });
+        };
+
     </script>
 
     <header class="header">
@@ -547,5 +566,38 @@
     <script src="./src/js/main.js"></script>
     <script src="./src/js/data.js"></script>
     <script src="./src/js/analitics.js"></script>
+
+    <script>
+        //Initializing Smart Script arguments
+        var oneLinkURL = "https://herowars.onelink.me/dPUs";
+        var mediaSource = {keys:["pid"],defaultValue:"influencer"};
+        var campaign = {keys:["c"]};
+        var adSet = {keys:["af_adset"]};
+        var ad = {keys:["af_ad"]};
+        var af_web_dp = {paramKey:"af_web_dp",keys:["site"]};
+        var channel = {keys:["af_channel"]};
+        var deepLinkValue = {keys:["deep_link_value"]};
+        var custom_ss_ui = {paramKey:"af_ss_ui",defaultValue:"true"};
+
+        //Call the function after embedding the code through a global parameter on the window object called window.AF_SMART_SCRIPT.
+        //Onelink URL is generated.
+        var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
+            oneLinkURL: oneLinkURL,
+            afParameters: {
+                mediaSource: mediaSource,
+                campaign: campaign,
+                adSet: adSet,
+                ad: ad,
+                afCustom: [
+                    af_web_dp,
+                    custom_ss_ui
+                ],
+                channel: channel,
+                deepLinkValue: deepLinkValue
+            }
+        });
+        console.log(result);
+
+    </script>
 </body>
 </html>

@@ -59,6 +59,7 @@
         top: 50%;
         margin-top: -16px;
         transform-origin: center;
+        pointer-events: none;
         transition: .4s linear transform;
 
         .opened & {
