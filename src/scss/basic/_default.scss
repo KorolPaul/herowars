@@ -91,12 +91,12 @@ a[name] {
 
 .mobile-only {
     @include tablet {
-        display: none !important;
+        display: none;
     }
 }
 
 .desktop-only {
-    display: none !important;
+    display: none;
     @include tablet {
         display: block;
     }

@@ -163,6 +163,7 @@ function disableScroll() {
     window.addEventListener('touchmove', e => e.preventDefault(), { passive: false }); // mobile
 }
 
+var throttled = debounce(handleScroll, 500);
 function handleScroll(event) {
     if (posTopOld > posTop) {
         scrolling = true;
@@ -256,6 +257,36 @@ function debounce(f, ms) {
         isCooldown = true;
         setTimeout(() => isCooldown = false, ms);
     };
+}
+
+function throttle(func, ms) {
+
+    let isThrottled = false,
+        savedArgs,
+        savedThis;
+
+    function wrapper() {
+
+        if (isThrottled) { // (2)
+            savedArgs = arguments;
+            savedThis = this;
+            return;
+        }
+
+        func.apply(this, arguments); // (1)
+
+        isThrottled = true;
+
+        setTimeout(function () {
+            isThrottled = false; // (3)
+            if (savedArgs) {
+                wrapper.apply(savedThis, savedArgs);
+                savedArgs = savedThis = null;
+            }
+        }, ms);
+    }
+
+    return wrapper;
 }
 
 function scrollHandler(e) {
