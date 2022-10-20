@@ -11,59 +11,48 @@ function loadData() {
     const infoAPiUrl = `https://api.herowarsportal.com/api/site-info?time=${Date.now()}`;
 
     fetch(infoAPiUrl).then(responce => responce.json()).then(data => {
-        localStorage.setItem('apiData', JSON.stringify(data.data));
-        localStorage.setItem('lastUpdate', new Date().getTime());
-        setData();
-    });
-}
-
-function setData() {
-    const { phase, winners } = JSON.parse(localStorage.getItem('apiData'));
-    const { card_50, card_100, card_500, card_all, portal, landing } = phase;
-
-    portalLevel = portal;
-
-    portalCount = phase?.install;
-    portalCountOld = localStorage.getItem('portalCount');
-    localStorage.setItem('portalCount', portalCount);
+        const { phase, winners } = data.data;
+        const { card_50, card_100, card_500, card_all, portal, landing } = phase;
 
 
-    document.getElementById('card_50').innerHTML = card_100;
-    document.getElementById('card_100').innerHTML = card_50;
-    document.getElementById('card_10').innerHTML = card_500;
-    document.getElementById('card_all').innerHTML = card_all;
-    document.getElementById('card_all_mobile').innerHTML = card_all;
+        portalLevel = portal;
 
-    document.body.classList.add(`landing-phase-${landing}`);
+        portalCount = phase?.install;
+        portalCountOld = localStorage.getItem('portalCount');
+        localStorage.setItem('portalCount', portalCount);
 
-    if (landing === 2 || landing === 3) {
-        document.body.classList.add('results-page');
-    }
 
-    if (landing === 3) {
-        const { card_50, card_100, card_500 } = winners;
+        document.getElementById('card_50').innerHTML = card_100;
+        document.getElementById('card_100').innerHTML = card_50;
+        document.getElementById('card_10').innerHTML = card_500;
+        document.getElementById('card_all').innerHTML = card_all;
+        document.getElementById('card_all_mobile').innerHTML = card_all;
 
-        const winnersTable50 = document.getElementById('winners-50');
-        const winnersTable100 = document.getElementById('winners-100');
-        const winnersTable500 = document.getElementById('winners-500');
+        document.body.classList.add(`landing-phase-${landing}`);
 
-        card_50.map(card => {
-            winnersTable50.appendChild(createWinner(card.name, card.game_id));
-        });
-        card_100.map(card => {
-            winnersTable100.appendChild(createWinner(card.name, card.game_id));
-        });
-        card_500.map(card => {
-            winnersTable500.appendChild(createWinner(card.name, card.game_id));
-        });
-    }
+        if (landing === 2 || landing === 3) {
+            document.body.classList.add('results-page');
+        }
+
+        if (landing === 3) {
+            const { card_50, card_100, card_500 } = winners;
+
+            const winnersTable50 = document.getElementById('winners-50');
+            const winnersTable100 = document.getElementById('winners-100');
+            const winnersTable500 = document.getElementById('winners-500');
+
+            card_50.map(card => {
+                winnersTable50.appendChild(createWinner(card.name, card.game_id));
+            });
+            card_100.map(card => {
+                winnersTable100.appendChild(createWinner(card.name, card.game_id));
+            });
+            card_500.map(card => {
+                winnersTable500.appendChild(createWinner(card.name, card.game_id));
+            });
+        }
+    })
 }
 
 setInterval(loadData, 180000);
-
-const lastUpdate = localStorage.getItem('lastUpdate') ? parseInt(localStorage.getItem('lastUpdate')) : 0;
-if (lastUpdate < new Date().getTime() - 180000) {
-    loadData();
-} else {
-    setData();
-}
+loadData()
