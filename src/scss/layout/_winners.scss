@@ -21,10 +21,10 @@
 
     &_table-item {
         color: $color;
-        font-weight: 700;
         font-size: 22px;
         line-height: 28px;
         text-align: center;
         width: 100%;
+        font-family: $font-family;
     }
 }
