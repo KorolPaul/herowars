@@ -36,7 +36,7 @@
             padding: 160px 0 40px;
         }
 
-        &::after {
+        .loaded   &::after {
             content: '';
             background: url(#{$img}/steps-bottom.png) no-repeat center bottom;
             position: absolute;
@@ -62,7 +62,7 @@
             padding: 70px 0 120px;
         }
 
-        &::after {
+        .loaded  &::after {
             content: '';
             background: url(#{$img}/platforms-bottom.png) no-repeat center bottom;
             position: absolute;
@@ -89,7 +89,7 @@
             padding: 150px 0 100px;
         }
 
-        &::after {
+        .loaded  &::after {
             content: '';
             background: url(#{$img}/treasures-bottom.png) no-repeat left 5% bottom;
             position: absolute;
@@ -137,9 +137,12 @@
         }
     }
     &__faq {
-        background: url(#{$img}/stars.svg) no-repeat center top 10% ,
-                    url(#{$img}/faq-bottom.png) no-repeat center bottom 3% / auto 300px,
-                    url(#{$img}/faq-bg.svg) no-repeat top -20px center / 100% 90%;
+        .loaded  & {
+            background: url(#{$img}/stars.svg) no-repeat center top 10% ,
+                        url(#{$img}/faq-bottom.png) no-repeat center bottom 3% / auto 300px,
+                        url(#{$img}/faq-bg.svg) no-repeat top -20px center / 100% 90%;
+        }
+
         background-color: #230817;
         padding: 125px 0 100px;
         @include tablet {
