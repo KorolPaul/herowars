@@ -5,12 +5,10 @@
     gap: 50px;
     margin: 50px auto 55px;
     max-width: 900px;
-    @include tablet {
+    @include desktop {
         flex-direction: row;
         justify-content: space-between;
         gap: 56px;
-    }
-    @include desktop {
         margin-bottom: 55px;
     }
 

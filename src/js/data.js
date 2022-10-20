@@ -61,7 +61,7 @@ function setData(data) {
 setInterval(loadData, 180000);
 
 if (typeof cachedInfo !== 'undefined') {
-    setData(cachedInfo)
+    setData(cachedInfo.data)
 } else {
     loadData();
 }
