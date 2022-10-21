@@ -1,9 +1,7 @@
 const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 const thresholdSteps = [...Array(10).keys()].map(i => i / 10);
 
-if (isMobile) {
-    document.querySelector('.showcase').style.height = `${screen.height}px`;
-}
+
 
 // menu
 const menuToggleElement = document.querySelector('.menu-toggle');
@@ -167,82 +165,78 @@ function disableScroll() {
 
 var throttled = debounce(handleScroll, 500);
 function handleScroll(event) {
-    if (posTopOld > posTop) {
-        scrolling = true;
+    if (posTopOldHalloween > posTopHalloween) {
+        scrollingHalloween = true;
         if (partal) {
             partal = false;
             partalHide();
         }
-    }
-    posTopOld = posTop;
+    }    
+    posTopOldHalloween = posTopHalloween;
 
-    isScrollDown = event.deltaY > 0;
+    isScrollDownHalloween = event.deltaY > 0;
     if (isMobile) {
-        isScrollDown = swipeFunc.touches.direction === 'down';
+        isScrollDownHalloween = swipeFunc.touches.direction === 'down';
     }
 
-    if (portalShow) {
-        document.body.classList.add('portal-show');
-    } else {
-        document.body.classList.remove('portal-show');
-    }
-
-    if (isScrollDown) {
+    
+    if (isScrollDownHalloween) {
         if (!portalShow) {
             event.preventDefault();
         } else {
             return;
         }
 
-        animDown = false;
-        posTop++;
+         animDown = false;
+         posTopHalloween++;
     }
     else if (document.body.scrollTop === 0) {
-        animDown = true;
-        posTop--;
+         animDown = true;
+         posTopHalloween--;
     }
-    if (stateAnim == -1) {
+    if(stateAnim == -1){
         stateAnim = 0;
     }
-    if (posTopOld != posTop) {
-        wheelNow = true;
+    if(posTopOldHalloween != posTopHalloween){
+        wheelNowHalloween = true;
     }
 }
 
 function handleTouchMove(event) {
-
-    if (isTouch && !scrollNow) {
-        touchPos.y = event.data.getLocalPosition(appMc.mcUI).y;
-        if (touchPos.y > touchPos.oldY) {
+    
+    if(isTouchHalloween && !scrollNowHalloween){
+        touchPosHalloween.y =  event.data.getLocalPosition(appMc.mcUI).y;        
+        if(touchPosHalloween.y > touchPosHalloween.oldY) {
             if (partal) {
                 portalShow = true;
             }
             animDown = true;
         }
-        else {
-            animDown = false;
+        else{            
+            animDown = false;         
         }
-
-        if (stateAnim == -1) {
+        if(touchPosHalloween.oldY != touchPosHalloween.y){
+            touchNowHalloween = true;
+        }       
+        if(stateAnim == -1){
             stateAnim = 0;
-        }
-    }
+        }       
+    }    
 }
-function handleTouchStart(event) {
-    isTouch = true;
-    touchPos.y = touchPos.oldY = event.data.getLocalPosition(appMc.mcUI).y;
-    if (portalShow) {
-        document.body.classList.add('portal-show');
-    } else {
-        document.body.classList.remove('portal-show');
-    }
+function handleTouchStart(event) {    
+    isTouchHalloween = true;
+    touchPosHalloween.y =  touchPosHalloween.oldY = event.data.getLocalPosition(appMc.mcUI).y;   
+    
 }
-function handleTouchEnd(event) {
-    touchLast = touchTop;
-    isTouch = false;
+function handleTouchEnd(event) {    
+    touchLastHalloween = touchTopHalloween;
+    isTouchHalloween = false;    
 }
 
 document.addEventListener(wheelEvent, handleScroll, { passive: false });
+
+
+
 var swipeFunc = {
     touches: {
         "touchstart": { "x": -1, "y": -1 },
@@ -330,8 +324,8 @@ function scrollHandler(e) {
         return false;
     }
 
-    const isScrollDown = e.deltaY >= 0;
-    if (isScrollDown) {
+    const isScrollDownHalloween = e.deltaY >= 0;
+    if (isScrollDownHalloween) {
         nextPage()
     } else {
         prevPage();

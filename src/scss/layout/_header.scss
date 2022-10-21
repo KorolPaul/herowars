@@ -42,8 +42,10 @@
         }
     }
     &_button-wrapper {
-        opacity: 0;
+        display: none;
         @include tablet {
+            opacity: 0;
+            display: block;
             position: fixed;
             right: 30px;
             top: 24px;
@@ -53,8 +55,10 @@
         }
 
         .header__button-visible & {
-            opacity: 1;
-            pointer-events: all;
+            @include tablet {
+                opacity: 1;
+                pointer-events: all;
+            }
         }
     }
     &_button {
