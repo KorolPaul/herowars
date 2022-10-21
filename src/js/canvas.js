@@ -34,7 +34,7 @@ var __filters = function (e, t, n, r, o, i, l, s) { "use strict"; var a = "attri
 				let objTemp = e.target;		
 				TweenLite.killTweensOf(objTemp.scale);
 				gsap.to(objTemp.scale, 0.5, {delay:0.0, overwrite:'none', x:1.00,y:1.00, ease:Sine.easeOut});
-				let url = "https://herowars.onelink.me/dPUs/c48kgp6c";
+                let url = portalLinks || "https://herowars.onelink.me/dPUs/c48kgp6c";
 				try{
 					if((/iphone|ipad|ipod/i).test(window.navigator.userAgent.toLowerCase())) {	
 						let windowReference = window.open();					
