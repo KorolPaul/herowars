@@ -26,7 +26,7 @@ function setData(data) {
         landing
     } = phase;
 
-    portalLevel = landing;
+    portalLevel = 1;
 
     portalCount = phase?.install;
     portalCountOld = localStorage.getItem('portalCount');
